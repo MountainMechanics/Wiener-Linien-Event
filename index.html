@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- START: Bootstrap requires this -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/formStyles.css">
+        <!-- END: Bootstrap requires this -->
+
+        <title>Event erstellen</title>
+    </head>
+    <body>
+        <form name="eventCreator" class="needs-validation" novalidate>
+            <header class="row">
+                <div class="col">
+                    <h2 class="heading">Erstellen Sie ihr Event</h2>
+                    <span class="subheading">Hier können Sie ihr Event erstellen</span>
+                </div>
+                <img src="imgs/Logo-Wiener-Linien.png" class="logo">
+            </header>
+            <div class="row">
+
+                <div class="col-md-6 mb-3" col>
+                    <label for="eventname">Eventname</label><br>
+                    <input type="text" id="eventname" placeholder="Name your event" name="eventname" value required>
+                    <div class="invalid-feedback">
+                        An event-name is required.
+                    </div>
+                </div>
+
+                <!-- File upload -->
+                <div class="custom-file fileupload">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
+                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                </div>
+                <!-- Fileupload ende -->
+
+            </div>
+            <div class="col-md-8 mb-3">
+                <label>Eventbeschreibung</label><br>
+                <textarea class="description form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
+                <label class="form-check-label ">
+                    An event description is required.
+                </label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                <button type="reset" class="btn btn-info btn-sm">Reset</button>
+            </div>
+        </form>
+
+        <!-- Bootstrap scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+.fileupload{
+    width: 50%;
+    margin-right: 0px;
+}
+
+form{
+    margin: 3%;
+    border: #707070 2px solid;
+    border-radius: 1px;
+    align-content: center;
+}
+
+.input-group{
+    height: 25px;
+}
+
+form > *{
+    padding: 15px;
+}
+
+.description{
+    width: 80%;
+}
+
+.heading{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.subheading{
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+.logo{
+    height: 100px;
+    float:right;
+    margin-right: 10px;
+    margin-top: 0;
+}
