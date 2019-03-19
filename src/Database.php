@@ -1,8 +1,8 @@
 <?php
 namespace WienerLinien;
-require_once "../vendor/autoload.php";
+require_once "vendor/autoload.php";
 
-class Config
+class Database
 {
     const DBPARAMS = [
         'driver' => 'pdo_mysql',
@@ -10,4 +10,6 @@ class Config
         'password' => '',
         'dbname' => 'WienerLinienEventTool'
     ];
+
+
 }

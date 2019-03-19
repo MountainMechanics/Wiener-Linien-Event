@@ -1,6 +1,6 @@
 <?php
 namespace WienerLinien;
-require_once "../vendor/autoload.php";
+require_once('vendor/autoload.php');
 
 class Token {
     public static function generateUserTokens(&$users) {
@@ -20,5 +20,23 @@ class Token {
             $token .= $pool[rand(0, $poolLength - 1)];
         }
         return $token;
+    }
+
+    public static function useToken($token) {
+        if(!isset($token))
+            return false;
+
+        $conn = \Doctrine\DBAL\DriverManager::getConnection(Database::DBPARAMS);
+
+        $query = $conn->prepare('SELECT * FROM participants WHERE token=?');
+        $query->bindValue(1, $token);
+        $query->execute();
+
+        $result = $query->fetch();
+
+        if(!$result)
+            return false;
+
+        return $result;
     }
 }
