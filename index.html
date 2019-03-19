@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/formStyles.css">
+        <script src="scripts/form-validation.js"></script>
         <!-- END: Bootstrap requires this -->
 
         <title>Event erstellen</title>
@@ -18,34 +19,64 @@
                     <h2 class="heading">Erstellen Sie ihr Event</h2>
                     <span class="subheading">Hier können Sie ihr Event erstellen</span>
                 </div>
-                <img src="imgs/Logo-Wiener-Linien.png" class="logo">
+                <div>
+                    <img src="imgs/Logo-Wiener-Linien.png" class="logo">
+                </div>
             </header>
             <div class="row">
 
+                <!-- Event titel -->
                 <div class="col-md-6 mb-3" col>
-                    <label for="eventname">Eventname</label><br>
-                    <input type="text" id="eventname" placeholder="Name your event" name="eventname" value required>
+                    <label for="eventTitel">Event-Titel</label><br>
+                    <input type="text" id="eventTitel" placeholder="Title your event" name="eventTitel" required>
                     <div class="invalid-feedback">
-                        An event-name is required.
+                        An event-title is required.
                     </div>
                 </div>
 
+                <!-- Event untertitel -->
+                <div class="col-md-6 mb-3" col>
+                    <label for="eventUTitel">Event-Untertitel</label><br>
+                    <input type="text" id="eventUTitel" placeholder="Add a subheading" name="eventUTitel">
+                </div>
+            </div>
+            <div class="row">
+
                 <!-- File upload -->
-                <div class="custom-file fileupload">
+                <div class="custom-file mx-auto fileupload">
+                    <label class="fileLabel">Add a picture for the event</label>
                     <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    <div class="invalid-feedback">No file chosen</div>
                 </div>
                 <!-- Fileupload ende -->
 
             </div>
-            <div class="col-md-8 mb-3">
-                <label>Eventbeschreibung</label><br>
-                <textarea class="description form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
-                <label class="form-check-label ">
-                    An event description is required.
-                </label>
+
+            <!-- Event Beschreibung -->
+            <div class="row">
+                <div class="col-md-8 mb-3 col">
+                    <label>Eventbeschreibung</label><br>
+                    <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
+                    <label class="form-check-label ">
+                        <br>An event description is required.
+                    </label>
+                </div>
+
+                <!-- Adressaten -->
+                <div class="col-md-8 mb-3 col">
+                    <label>Adressaten</label><br>
+                    <textarea class="form-check-label" id="sendTo" name="event-sendTo" placeholder="Paste emails here" ></textarea>
+                    <label class="form-check-label ">
+                        <br>An event needs at least one attendant.
+                    </label>
+                </div>
             </div>
+
+            <div>
+                <!-- iFrame mit goodle maps Einbindung -->
+            </div>
+
             <div>
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                 <button type="reset" class="btn btn-info btn-sm">Reset</button>

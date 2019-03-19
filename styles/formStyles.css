@@ -1,6 +1,5 @@
 .fileupload{
-    width: 50%;
-    margin-right: 0px;
+    width: 40%;
 }
 
 form{
@@ -18,8 +17,8 @@ form > *{
     padding: 15px;
 }
 
-.description{
-    width: 80%;
+#eventDescription, #sendTo{
+    width: 50%;
 }
 
 .heading{
