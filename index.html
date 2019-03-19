@@ -30,7 +30,7 @@
                     <label for="eventTitel">Event-Titel</label><br>
                     <input type="text" id="eventTitel" placeholder="Title your event" name="eventTitel" required>
                     <div class="invalid-feedback">
-                        An event-title is required.
+                        Ein Event braucht einen Namen
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
                     <label class="fileLabel">Add a picture for the event</label>
                     <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                    <div class="invalid-feedback">No file chosen</div>
+                    <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
                 </div>
                 <!-- Fileupload ende -->
 
@@ -58,18 +58,19 @@
                 <div class="col-md-8 mb-3 col">
                     <label>Eventbeschreibung</label><br>
                     <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
-                    <label class="form-check-label ">
-                        <br>An event description is required.
-                    </label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie eine Eventbeschreibung an.
+                    </div>
                 </div>
 
                 <!-- Adressaten -->
                 <div class="col-md-8 mb-3 col">
                     <label>Adressaten</label><br>
                     <textarea class="form-check-label" id="sendTo" name="event-sendTo" placeholder="Paste emails here" ></textarea>
-                    <label class="form-check-label ">
-                        <br>An event needs at least one attendant.
-                    </label>
+                    <label class="form-check-label" for="sendTo"></label>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie (einen) Adressaten an.
+                    </div>
                 </div>
             </div>
 
