@@ -1,0 +1,35 @@
+{
+    "name": "project-wiener_linien/wiener_linien",
+    "type": "project",
+    "require": {
+        "doctrine/dbal": "^2.6"
+    },
+    "authors": [
+        {
+            "name": "Andreas Schloessl"
+        },
+        {
+            "name": "Rafael Fiedler"
+        },
+        {
+            "name": "Tobias Preissner"
+        },
+        {
+            "name": "Felix Berger"
+        },
+        {
+            "name": "Alexander Gruebling"
+        },
+        {
+            "name": "Oliver Kubesch"
+        },
+        {
+            "name": "Vjeko Mistrafovic"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WienerLinien\\": "src/"
+        }
+    }
+}
