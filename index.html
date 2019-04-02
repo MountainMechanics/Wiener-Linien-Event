@@ -43,19 +43,31 @@
             <div class="row">
 
                 <!-- File upload -->
-                <div class="custom-file mx-auto fileupload">
-                    <label class="fileLabel">Add a picture for the event</label>
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
-                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                    <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                <div class="picWrapper" col>
+                    <label class="fileLabel" for="validatedCustomFile">Add a picture for the event</label><br>
+                    <div class="custom-file mx-auto fileupload">
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                    </div>
                 </div>
+
+                <div class="agendaWrapper" col>
+                    <label class="agendaLabel" for="agendaCustomFile">Add an agenda for the event</label><br>
+                    <div class="custom-file mx-auto fileupload">
+                        <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" required>
+                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                    </div>
+                </div>
+
                 <!-- Fileupload ende -->
 
             </div>
 
             <!-- Event Beschreibung -->
-            <div class="row">
-                <div class="col-md-8 mb-3 col">
+            <div class="row event-info">
+                <div class="col descriptionWrapper">
                     <label>Eventbeschreibung</label><br>
                     <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
                     <div class="invalid-feedback">
@@ -64,12 +76,12 @@
                 </div>
 
                 <!-- Adressaten -->
-                <div class="col-md-8 mb-3 col">
-                    <label>Adressaten</label><br>
-                    <textarea class="form-check-label" id="sendTo" name="event-sendTo" placeholder="Paste emails here" ></textarea>
-                    <label class="form-check-label" for="sendTo"></label>
-                    <div class="invalid-feedback">
-                        Bitte geben Sie (einen) Adressaten an.
+                <div class="sendTo-wrapper" col>
+                    <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
+                    <div class="custom-file mx-auto fileupload">
+                        <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" required>
+                        <label class="custom-file-label" for="sendTo">Choose file...</label>
+                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
                     </div>
                 </div>
             </div>
