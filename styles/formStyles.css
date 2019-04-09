@@ -1,6 +1,7 @@
 .fileupload{
-    width: 105%;
+    width: 90%;
 }
+
 
 form{
     margin: 3%;
@@ -36,29 +37,41 @@ form > *{
 }
 
 #eventTitel, #eventUTitel, #eventDescription{
-    width: 70%;
+    width: 90%;
 }
 
 #eventDescription{
     height: 90%;
+    width: 90%;
     overflow: auto;
 }
 
 .picWrapper{
-    margin-left: 20px;
+    width: 90%;
 }
 
+
 .agendaWrapper{
-    margin-left: 30px;
+    margin-left: 0;
     margin-right: 0;
 }
 
 .sendTo-wrapper{
-    width: 30%;
+    margin-left: 10px;
 }
 
 .descriptionWrapper{
     margin-right: 0;
     padding-right:0;
     width: 20%;
+}
+
+#email-content{
+    width: 90%;
+    height: 100px;
+}
+
+#event-details{
+    width: 90%;
+    height: 100px;
 }

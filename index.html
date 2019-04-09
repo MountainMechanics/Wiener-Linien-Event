@@ -43,7 +43,7 @@
             <div class="row">
 
                 <!-- File upload -->
-                <div class="picWrapper" col>
+                <div class="picWrapper col" col>
                     <label class="fileLabel" for="validatedCustomFile">Add a picture for the event</label><br>
                     <div class="custom-file mx-auto fileupload">
                         <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="agendaWrapper" col>
+                <div class="agendaWrapper col" col>
                     <label class="agendaLabel" for="agendaCustomFile">Add an agenda for the event</label><br>
                     <div class="custom-file mx-auto fileupload">
                         <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" required>
@@ -76,12 +76,28 @@
                 </div>
 
                 <!-- Adressaten -->
-                <div class="sendTo-wrapper" col>
+                <div class="col sendTo-wrapper" col>
                     <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
                     <div class="custom-file mx-auto fileupload">
                         <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" required>
                         <label class="custom-file-label" for="sendTo">Choose file...</label>
                         <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col detail-wrapper">
+                    <label>Email-Details</label><br>
+                    <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Write the event details here" ></textarea>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie Details an.
+                    </div>
+                </div>
+                <div class="col mail-wrapper">
+                    <label>Email-Anrede</label><br>
+                    <textarea class="form-check-label" id="email-content" name="email-descr" placeholder="Write the E-Mail content here" ></textarea>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie einen Kontent an.
                     </div>
                 </div>
             </div>
