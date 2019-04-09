@@ -5,8 +5,7 @@
 
 form{
     margin: 3%;
-    border: #707070 2px solid;
-    border-radius: 1px;
+
     align-content: center;
 }
 
@@ -74,4 +73,9 @@ form > *{
 #event-details{
     width: 90%;
     height: 100px;
+}
+
+#logo {
+    width:15%;
+    height:15%;
 }
