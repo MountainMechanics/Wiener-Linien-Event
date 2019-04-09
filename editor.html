@@ -58,7 +58,7 @@
                 <div class="picWrapper col" col>
                     <label class="fileLabel" for="validatedCustomFile">Add a picture for the event</label><br>
                     <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" required>
+                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" accept="image/*" required>
                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                         <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
                     </div>
@@ -91,7 +91,7 @@
                 <div class="col sendTo-wrapper" col>
                     <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
                     <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" required>
+                        <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" accept=".xlsx, .xlsm, .xls, .xlsb" required>
                         <label class="custom-file-label" for="sendTo">Choose file...</label>
                         <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
                     </div>
@@ -115,10 +115,18 @@
             </div>
             <!-- Reminder section ------------
             <div class="row">
+                Toggle (on/off)
                 Datepicker
                 Message
             </div>
+
+
+            <div class="form-group"> Date input
+            <label class="control-label" for="date">Date</label>
+            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+            </div>
             ---------------------------------- -->
+
 
             <div>
                 <!-- iFrame mit goodle maps Einbindung -->
