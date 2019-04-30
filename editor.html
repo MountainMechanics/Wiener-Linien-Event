@@ -25,122 +25,137 @@
             </div>
         </nav>
     <!-- unified navbar END-->
+        <div class="allContent">
+            <div class="editor">
+                <form name="eventCreator" class="needs-validation" novalidate>
 
-        <form name="eventCreator" class="needs-validation" novalidate>
+                    <!-- Event erstellung -------------------------------------------------- -->
+                    <header class="row">
+                        <div class="col">
+                            <h2 class="heading">Erstellen Sie ihr Event</h2>
+                            <span class="subheading">Hier können Sie ihr Event erstellen</span>
+                        </div>
+                    </header>
+                    <div class="col">
 
-            <!-- Event erstellung -------------------------------------------------- -->
-            <header class="row">
-                <div class="col">
-                    <h2 class="heading">Erstellen Sie ihr Event</h2>
-                    <span class="subheading">Hier können Sie ihr Event erstellen</span>
-                </div>
-            </header>
-            <div class="row">
+                        <!-- Event titel -->
+                        <div class="e-spacing" >
+                            <label for="eventTitel">Event-Titel</label><br>
+                            <input type="text" id="eventTitel" placeholder="Title your event" name="eventTitel" required>
+                            <div class="invalid-feedback">
+                                Ein Event braucht einen Namen
+                            </div>
+                        </div>
 
-                <!-- Event titel -->
-                <div class="col-md-6 mb-3" col>
-                    <label for="eventTitel">Event-Titel</label><br>
-                    <input type="text" id="eventTitel" placeholder="Title your event" name="eventTitel" required>
-                    <div class="invalid-feedback">
-                        Ein Event braucht einen Namen
+                        <!-- Event untertitel -->
+                        <div class="e-spacing" >
+                            <label for="eventUTitel">Event-Untertitel</label><br>
+                            <input type="text" id="eventUTitel" placeholder="Add a subheading" name="eventUTitel">
+                        </div>
+
+                        <!-- Datepicker -->
+
+                        <div class="e-spacing">
+                            <label for="pickDate">Wählen Sie ein Datum aus</label><br>
+                            <span class="dateTimeWrapper"><input name="date" id="pickDate" type="date" class="dateTime" required></span>
+                            <span class="dateTimeWrapper"><input name="date" id="pickTime" type="time" class="dateTime" required></span>
+                        </div>
+
+                        <!-- File upload -->
+                        <div class="e-text">
+                            <label class="fileLabel" for="validatedCustomFile">Wählen Sie ein Bild aus</label><br>
+                            <div class="custom-file mx-auto fileupload">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" accept="image/*" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Datei auswählen...</label>
+                                <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                            </div>
+                        </div>
+
+                        <div class="e-text" >
+                            <label class="agendaLabel" for="agendaCustomFile">Wählen Sie eine Agenda aus</label><br>
+                            <div class="custom-file mx-auto fileupload">
+                                <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Datei auswählen...</label>
+                                <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                            </div>
+                        </div>
+
+                        <!-- Fileupload ende -->
+
+
+                        <!-- Event Beschreibung -->
+                        <div class="event-info">
+                            <!-- Adressaten -->
+                            <div class="e-text">
+                                <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
+                                <div class="custom-file mx-auto fileupload">
+                                    <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" accept=".xlsx, .xlsm, .xls, .xlsb" required>
+                                    <label class="custom-file-label" for="sendTo">Datei auswählen...</label>
+                                    <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label>Eventbeschreibung</label><br>
+                                <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
+                                <div class="invalid-feedback">
+                                    Bitte geben Sie eine Eventbeschreibung an.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <label>Email-Details</label><br>
+                            <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Geben Sie hier die Email-Details an" ></textarea>
+                            <div class="invalid-feedback">
+                                Bitte geben Sie Details an.
+                            </div>
+                        </div>
+                        <div class="mail-wrapper">
+                            <label>Email-Anrede</label><br>
+                            <textarea class="form-check-label" id="email-content" name="email-descr" placeholder="Geben Sie hier die Email-Inhalt an" ></textarea>
+                            <div class="invalid-feedback">
+                                Bitte geben Sie eine Anrede an.
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Event untertitel -->
-                <div class="col-md-6 mb-3" col>
-                    <label for="eventUTitel">Event-Untertitel</label><br>
-                    <input type="text" id="eventUTitel" placeholder="Add a subheading" name="eventUTitel">
-                </div>
-            </div>
-            <div class="row">
-
-                <!-- File upload -->
-                <div class="picWrapper col" col>
-                    <label class="fileLabel" for="validatedCustomFile">Add a picture for the event</label><br>
-                    <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="event-picture" accept="image/*" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+                    <!-- Reminder section ------------
+                    <div class="row">
+                        Toggle (on/off)
+                        Datepicker
+                        Message
                     </div>
-                </div>
 
-                <div class="agendaWrapper col" col>
-                    <label class="agendaLabel" for="agendaCustomFile">Add an agenda for the event</label><br>
-                    <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" required>
-                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+
+                    <div class="form-group"> Date input
+                    <label class="control-label" for="date">Date</label>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
                     </div>
-                </div>
+                    ---------------------------------- -->
 
-                <!-- Fileupload ende -->
 
-            </div>
-
-            <!-- Event Beschreibung -->
-            <div class="row event-info">
-                <div class="col descriptionWrapper">
-                    <label>Eventbeschreibung</label><br>
-                    <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
-                    <div class="invalid-feedback">
-                        Bitte geben Sie eine Eventbeschreibung an.
+                    <div>
+                        <!-- iFrame mit goodle maps Einbindung -->
                     </div>
-                </div>
 
-                <!-- Adressaten -->
-                <div class="col sendTo-wrapper" col>
-                    <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
-                    <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="sendTo" name="event-agenda" accept=".xlsx, .xlsm, .xls, .xlsb" required>
-                        <label class="custom-file-label" for="sendTo">Choose file...</label>
-                        <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        <button type="reset" class="btn btn-info btn-sm">Reset</button>
                     </div>
-                </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col detail-wrapper">
-                    <label>Email-Details</label><br>
-                    <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Write the event details here" ></textarea>
-                    <div class="invalid-feedback">
-                        Bitte geben Sie Details an.
-                    </div>
-                </div>
-                <div class="col mail-wrapper">
-                    <label>Email-Anrede</label><br>
-                    <textarea class="form-check-label" id="email-content" name="email-descr" placeholder="Write the E-Mail content here" ></textarea>
-                    <div class="invalid-feedback">
-                        Bitte geben Sie eine Anrede an.
-                    </div>
-                </div>
+            <div class="live-view">
+                 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
             </div>
-            <!-- Reminder section ------------
-            <div class="row">
-                Toggle (on/off)
-                Datepicker
-                Message
-            </div>
+        </div>
 
 
-            <div class="form-group"> Date input
-            <label class="control-label" for="date">Date</label>
-            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-            </div>
-            ---------------------------------- -->
 
-
-            <div>
-                <!-- iFrame mit goodle maps Einbindung -->
-            </div>
-
-            <div>
-                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                <button type="reset" class="btn btn-info btn-sm">Reset</button>
-            </div>
-        </form>
 
         <!-- Bootstrap scripts -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     </body>
 </html>

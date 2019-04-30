@@ -2,9 +2,8 @@
     width: 90%;
 }
 
-
 form{
-    margin: 3%;
+    margin: 3% 0 3% 3%;
 
     align-content: center;
 }
@@ -49,7 +48,6 @@ form > *{
     width: 90%;
 }
 
-
 .agendaWrapper{
     margin-left: 0;
     margin-right: 0;
@@ -78,4 +76,47 @@ form > *{
 #logo {
     width:15%;
     height:15%;
+}
+
+.e-spacing{
+    width: 100%;
+    padding: 0;
+}
+
+.row{
+    margin: 0;
+}
+
+.col{
+    padding: 0;
+}
+
+.allContent{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.live-view{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin: 30% 3% 25% 0;
+    border: solid lightgrey 1px;
+}
+
+.dateTime{
+    border:none;
+}
+
+.dateTime:focus{
+    border-color: lightskyblue;
+}
+
+.dateTimeWrapper{
+    background-color: lightgrey;
+}
+
+.custom-file-label::after{
+    display: none;
 }
