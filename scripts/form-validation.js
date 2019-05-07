@@ -16,3 +16,20 @@
         });
     }, false);
 })();
+
+/*
+
+
+$(function () {
+    $('#pickBeginTime').timepicker();
+    $('#pickEndTime').timepicker({
+        //useCurrent: false //Important! See issue #1075
+    });
+    $("#pickBeginTime").on("dp.change", function (e) {
+        $('#pickEndTime').data("DateTimePicker").minDate(e.date);
+    });
+    $("#pickEndTime").on("dp.change", function (e) {
+        $('#pickBeginTime').data("DateTimePicker").maxDate(e.date);
+    });
+});
+*/

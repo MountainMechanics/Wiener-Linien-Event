@@ -39,7 +39,7 @@ form > *{
 }
 
 #eventDescription{
-    height: 90%;
+    height: 100px;
     width: 90%;
     overflow: auto;
 }
@@ -106,7 +106,8 @@ form > *{
 }
 
 .dateTime{
-    border:none;
+    border: #a8a8a8 1px solid !important;
+    border-radius: 1px;
 }
 
 .dateTime:focus{
@@ -119,4 +120,8 @@ form > *{
 
 .custom-file-label::after{
     display: none;
+}
+
+#content > *{
+    padding-bottom: 20px;
 }

@@ -20,7 +20,7 @@
                 <div class="navbar-nav">
                     <img src="imgs/Logo.svg" id="logo">
                     <a class="nav-item nav-link " href="index_old.html">Übersichtsseite</a>
-                    <a class="nav-item nav-link active" href="editor.html">Editor</a>
+                    <a class="nav-item nav-link active" href="editor.php">Editor</a>
                 </div>
             </div>
         </nav>
@@ -36,7 +36,7 @@
                             <span class="subheading">Hier können Sie ihr Event erstellen</span>
                         </div>
                     </header>
-                    <div class="col">
+                    <div class="col" id="content">
 
                         <!-- Event titel -->
                         <div class="e-spacing" >
@@ -55,10 +55,11 @@
 
                         <!-- Datepicker -->
 
-                        <div class="e-spacing">
+                        <div class="e-spacing col">
                             <label for="pickDate">Wählen Sie ein Datum aus</label><br>
-                            <span class="dateTimeWrapper"><input name="date" id="pickDate" type="date" class="dateTime" required></span>
-                            <span class="dateTimeWrapper"><input name="date" id="pickTime" type="time" class="dateTime" required></span>
+                            Datum: <span class="dateTimeWrapper"><input name="date" id="pickDate" type="date" class="dateTime" required></span>
+                            Beginn: <span class="dateTimeWrapper"><input name="date" id="pickBeginTime" type="time" class="dateTime" required></span>
+                            Ende: <span class="dateTimeWrapper"><input name="date" id="pickEndTime" type="time" class="dateTime" required></span>
                         </div>
 
                         <!-- File upload -->
@@ -103,18 +104,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-wrapper">
-                            <label>Email-Details</label><br>
-                            <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Geben Sie hier die Email-Details an" ></textarea>
-                            <div class="invalid-feedback">
-                                Bitte geben Sie Details an.
-                            </div>
-                        </div>
+                        <!--
                         <div class="mail-wrapper">
                             <label>Email-Anrede</label><br>
                             <textarea class="form-check-label" id="email-content" name="email-descr" placeholder="Geben Sie hier die Email-Inhalt an" ></textarea>
                             <div class="invalid-feedback">
                                 Bitte geben Sie eine Anrede an.
+                            </div>
+                        </div>
+                        -->
+                        <div class="detail-wrapper">
+                            <label>Email-Details</label><br>
+                            <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Geben Sie hier die Email-Details an" ></textarea>
+                            <div class="invalid-feedback">
+                                Bitte geben Sie Details an.
                             </div>
                         </div>
                     </div>
@@ -134,7 +137,7 @@
 
 
                     <div>
-                        <!-- iFrame mit goodle maps Einbindung -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10639.38577350909!2d16.40391135!3d48.190310049999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sat!4v1557234275790!5m2!1sde!2sat" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
 
 
@@ -148,9 +151,6 @@
                  lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
             </div>
         </div>
-
-
-
 
         <!-- Bootstrap scripts -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
