@@ -62,6 +62,14 @@
                             Ende: <span class="dateTimeWrapper"><input name="date" id="pickEndTime" type="time" class="dateTime" required></span>
                         </div>
 
+                        <div class="col">
+                            <label>Adresse</label>
+                            <input name="straße" type="text" placeholder="Straße/Gasse">
+                            <input name="hNummer" type="number" minlength="1" placeholder="Hausnummer">
+                            <input name="plz" minlength="4" maxlength="4" size="4" type="number" placeholder="PLZ">
+                            <input name="ort" type="text" placeholder="Ort">
+                        </div>
+
                         <!-- File upload -->
                         <div class="e-text">
                             <label class="fileLabel" for="validatedCustomFile">Wählen Sie ein Bild aus</label><br>
@@ -113,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Reminder section ------------
+                    <!-- Reminder section --RIP-----------
                     <div class="row">
                         Toggle (on/off)
                         Datepicker
@@ -129,7 +137,9 @@
 
 
                     <div>
+                        <!--
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10639.38577350909!2d16.40391135!3d48.190310049999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sat!4v1557234275790!5m2!1sde!2sat" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        -->
                     </div>
 
 
