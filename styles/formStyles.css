@@ -1,6 +1,10 @@
-.fileupload{
-    width: 90%;
-}
+/*
+CSS file for the Editor of the Wiener-Linien-Eventseite Project
+Uses:
+Bootstrap 4.3.1 (injected in editor.php)
+*/
+
+
 
 form{
     margin: 3% 0 3% 3%;
@@ -8,14 +12,13 @@ form{
     align-content: center;
 }
 
-.input-group{
-    height: 25px;
-}
-
 form > *{
     padding: 15px;
 }
 
+.fileupload{
+    width: 90%;
+}
 
 .heading{
     margin-bottom: 0;
@@ -27,45 +30,13 @@ form > *{
     padding-bottom: 0;
 }
 
-.logo{
-    height: 100px;
-    float:right;
-    margin-right: 10px;
-    margin-top: 0;
-}
-
 #eventTitel, #eventUTitel, #eventDescription{
     width: 90%;
 }
 
 #eventDescription{
     height: 100px;
-    width: 90%;
     overflow: auto;
-}
-
-.picWrapper{
-    width: 90%;
-}
-
-.agendaWrapper{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.sendTo-wrapper{
-    margin-left: 10px;
-}
-
-.descriptionWrapper{
-    margin-right: 0;
-    padding-right:0;
-    width: 20%;
-}
-
-#email-content{
-    width: 90%;
-    height: 100px;
 }
 
 #event-details{

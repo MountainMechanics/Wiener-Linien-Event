@@ -104,15 +104,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--
-                        <div class="mail-wrapper">
-                            <label>Email-Anrede</label><br>
-                            <textarea class="form-check-label" id="email-content" name="email-descr" placeholder="Geben Sie hier die Email-Inhalt an" ></textarea>
-                            <div class="invalid-feedback">
-                                Bitte geben Sie eine Anrede an.
-                            </div>
-                        </div>
-                        -->
+
                         <div class="detail-wrapper">
                             <label>Email-Details</label><br>
                             <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Geben Sie hier die Email-Details an" ></textarea>
