@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <>
         <meta charset="utf-8">
 
         <!-- START: Bootstrap requires this -->
@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="styles/formStyles.css">
         <script src="scripts/form-validation.js"></script>
+        <script src="scripts/auto-preview.js"></script>
         <!-- END: Bootstrap requires this -->
 
         <title>Event erstellen</title>
@@ -145,7 +146,39 @@
                 </form>
             </div>
             <div class="live-view">
-                 lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
+                <section>
+                    <object id="bild" data="imgs/Logo.svg" type="image/svg+xml">Ihr Browser kann leider kein svg darstellen.</object>
+                    <h5>Pers&ouml;nliche Einladung</h5>
+                    <h2 class="previw-title"></h2>
+                    <div id="b1">
+                        <h6></h6>
+                        <h6>{date_end}</h6>
+                        <h6>{strasse}</h6>
+                        <h6>{plz} {ort}</h6>
+                    </div>
+                </section>
+                <section>
+                    <p id="begruessung">Sehr geehrter Herr {name},<p>
+                    <p id="t2">{opening_text}</p>
+                </section>
+                <section id="s3">
+                    <p id="t1">Ihre Rückmeldung</p>
+                    <div id="formular">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" style="vertical-align: middle;" id="customRadio1" name="customRadio" class="custom-control-input" onclick="enable()&ausblenden()">
+                            <label class="custom-control-label" for="customRadio1">Ja, ich komme</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" style="vertical-align: middle;" id="customRadio2" name="customRadio" class="custom-control-input" onclick="enable()&einblenden()">
+                            <label class="custom-control-label" for="customRadio2">Nein, ich komme nicht</label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="g1">
+                        <label for="exampleFormControlTextarea1" class="hide" id="label1">Grund des Fehlens:</label>
+                        <textarea class="form-control hide" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="myBtn" disabled>Anmeldung absenden</button>
+                </section>
             </div>
         </div>
 
