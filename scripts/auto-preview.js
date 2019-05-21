@@ -3,6 +3,9 @@ window.addEventListener('DOMContentLoaded', () => {
     [
         ["#eventTitel", ".live-view .preview-title"],
         ["#event-details", ".live-view .preview-opening"],
+        ["#strasse", ".live-view .preview-street"],
+        ["#ort", ".live-view .preview-loc"],
+        ["#plz", ".live-view .preview-plz"],
     ].forEach((x) => {
         document.querySelector(x[0]).addEventListener('change', () => {
             document.querySelector(x[1]).innerHTML = document.querySelector(x[0]).value;
