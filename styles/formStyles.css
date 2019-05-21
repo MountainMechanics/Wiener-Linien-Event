@@ -147,7 +147,7 @@ form > *{
 .live-view #t2{
     margin-left:5%;
     margin-right:5%;
-
+    color:#1C4B94;
 }
 
 .live-view button{
@@ -167,7 +167,6 @@ form > *{
     margin-right:5%;
 }
 
-.live-view #formular{
-
-
+.live-view .preview-pic {
+    width: 90%;
 }
