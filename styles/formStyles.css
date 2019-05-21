@@ -4,7 +4,7 @@ Uses:
 Bootstrap 4.3.1 (injected in editor.html)
 */
 
-form{
+form {
     margin: 3% 0 3% 3%;
     align-content: center;
 }
@@ -13,7 +13,7 @@ form > *{
     padding: 15px;
 }
 
-.fileupload{
+.fileupload {
     width: 90%;
 }
 
@@ -59,18 +59,19 @@ form > *{
     padding: 0;
 }
 
-.allContent{
+.allContent {
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
 
-.live-view{
+.live-view {
     display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
-
-    margin: 30% 3% 25% 0;
+    height: fit-content;
+    margin: 5rem 1rem 0 0;
+    padding: 1rem;
     border: solid lightgrey 1px;
 }
 
@@ -106,7 +107,6 @@ form > *{
     margin-top:1%;
     margin-left:1%;
     width: 10rem;
-
 }
 
 .live-view h2{
@@ -168,5 +168,5 @@ form > *{
 }
 
 .live-view .preview-pic {
-    width: 90%;
+    width: 95%;
 }
