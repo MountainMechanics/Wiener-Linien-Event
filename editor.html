@@ -28,7 +28,7 @@
     <!-- unified navbar END-->
         <div class="allContent">
             <div class="editor">
-                <form name="eventCreator" class="needs-validation" novalidate>
+                <form name="eventCreator" class="needs-validation" method="POST" action="submit.php" enctype="multipart/form-data" novalidate>
 
                     <!-- Event erstellung -------------------------------------------------- -->
                     <header class="row">
@@ -149,17 +149,17 @@
                 <section>
                     <object id="bild" data="imgs/Logo.svg" type="image/svg+xml">Ihr Browser kann leider kein svg darstellen.</object>
                     <h5>Pers&ouml;nliche Einladung</h5>
-                    <h2 class="preview-title"></h2>
+                    <h2 class="preview-title">*Titel*</h2>
                     <div id="b1">
-                        <h6 class="preview-date-begin"></h6>
-                        <h6 class="preview-date-end"></h6>
-                        <h6 class="preview-street"></h6>
-                        <h6 class="preview-plz-loc"></h6>
+                        <h6 class="preview-date-begin">*Datum Beginn*</h6>
+                        <h6 class="preview-date-end">*Datum Ende*</h6>
+                        <h6 class="preview-street">*Straße*</h6>
+                        <h6 class="preview-plz-loc">*PLZ Ort*</h6>
                     </div>
                 </section>
                 <section>
                     <p id="begruessung">Sehr geehrte/r Herr/Frau Max Mustermann,<p>
-                    <p id="t2" class="preview-opening"></p>
+                    <p id="t2" class="preview-opening">*Opening*</p>
                 </section>
                 <section id="s3">
                     <p id="t1">Ihre Rückmeldung</p>
