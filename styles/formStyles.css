@@ -1,7 +1,7 @@
 /*
 CSS file for the Editor of the Wiener-Linien-Eventseite Project
 Uses:
-Bootstrap 4.3.1 (injected in editor.php)
+Bootstrap 4.3.1 (injected in editor.html)
 */
 
 form{
@@ -68,6 +68,7 @@ form > *{
     display: flex;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 
     margin: 30% 3% 25% 0;
     border: solid lightgrey 1px;
@@ -92,4 +93,81 @@ form > *{
 
 #content > *{
     padding-bottom: 20px;
+}
+
+/*Andi*/
+
+.live-view h5 {
+    color:#1C4B94;
+    text-align:center;
+}
+
+.live-view #bild {
+    margin-top:1%;
+    margin-left:1%;
+    width: 10rem;
+
+}
+
+.live-view h2{
+    color:#1C4B94;
+    text-align:center;
+}
+
+.live-view h6{
+    margin-top:1%;
+    color:#1C4B94;
+    text-align:center;
+}
+
+.live-view #b1{
+    margin-top:2%;
+}
+
+.live-view #begruessung{
+    margin-top:10%;
+    font-weight:bold;
+    color:#1C4B94;
+    margin-left:5%;
+}
+
+.live-view #t1{
+    font-weight:bold;
+
+
+}
+
+.live-view #s3{
+    margin-top:15%;
+    color:#1C4B94;
+    text-align:center;
+    margin-bottom:5%;
+}
+
+.live-view #t2{
+    margin-left:5%;
+    margin-right:5%;
+
+}
+
+.live-view button{
+    margin-top:3%;
+
+}
+
+.live-view .hide{
+    display: none;
+
+}
+
+
+.live-view #g1{
+    margin-top:5%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.live-view #formular{
+
+
 }
