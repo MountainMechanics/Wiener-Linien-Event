@@ -1,0 +1,13 @@
+{
+    "name": "projekt/anmeldeseite",
+    "authors": [
+        {
+            "name": "Vjeko Mistrafovic",
+            "email": "6149@htl.rennweg.at"
+        }
+    ],
+    "require": {
+        "doctrine/dbal": "^2.9",
+        "typo3fluid/fluid": "^2.6"
+    }
+}

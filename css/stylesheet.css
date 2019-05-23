@@ -1,0 +1,33 @@
+#formular{
+    padding: 10px;
+    width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+/*#logo{
+    position: absolute;
+    margin-top:-150px;
+    margin-left: 325px;
+    transform:scale(0.45);
+}*/
+
+.formelement{
+    margin: 10px;
+}
+#formularelementtop{
+    padding-top:15px;
+}
+/*
+#logo {
+    width:20%;
+    height:20%;
+}*/
+
+#logo {
+    width:15%;
+    height:15%;
+}

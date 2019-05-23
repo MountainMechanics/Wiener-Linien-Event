@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:f="http://typo3.org/ns/TYPO3Fluid/Fluid/ViewHelpers">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Anmeldeseite</title>
+
+    <style>
+        h5{
+            color:#1C4B94;
+            text-align:center;
+        }
+
+        #bild{
+            margin-top:1%;
+            margin-left:1%;
+            width: 25%;
+            height: 25%;
+
+        }
+
+        h2{
+            color:#1C4B94;
+            text-align:center;
+
+        }
+
+        h6{
+            margin-top:1%;
+            color:#1C4B94;
+            text-align:center;
+
+        }
+
+        #b1{
+            margin-top:2%;
+
+        }
+        #begruessung{
+            margin-top:10%;
+            font-weight:bold;
+            color:#1C4B94;
+            margin-left:5%;
+        }
+
+        #t1{
+            font-weight:bold;
+
+
+        }
+
+        #s3{
+            margin-top:15%;
+            color:#1C4B94;
+            text-align:center;
+            margin-bottom:5%;
+        }
+
+        #t2{
+            margin-left:5%;
+            margin-right:5%;
+
+        }
+
+        button{
+            margin-top:3%;
+
+        }
+
+        .hide{
+            display: none;
+
+        }
+
+
+        #g1{
+            margin-top:5%;
+            margin-left:5%;
+            margin-right:5%;
+        }
+
+        #agenda{
+            margin-left:33%;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<section>
+<object id="bild" data="Resources/Public/logo.svg" type="image/svg+xml">Ihr Browser kann leider kein svg darstellen.</object>
+<h5>Pers&ouml;nliche Einladung</h5>
+<h2>{title}</h2>
+    <div id="b1">
+<h6>Mittwoch, {date_begin}</h6>
+<h6>{date_end}</h6>
+<h6>{strasse}</h6>
+<h6>{plz} {ort}</h6>
+    </div>
+</section>
+<section>
+<p id="begruessung">Sehr geehrter Herr {name},<p>
+    <p id="t2">{opening_text}</p>
+</section>
+<section id="s3">
+    <p id="t1">Ihre Rückmeldung</p>
+    <div id="formular">
+    <div class="custom-control custom-radio">
+        <input type="radio" style="vertical-align: middle;" id="customRadio1" name="customRadio" class="custom-control-input" onclick="enable()&ausblenden()">
+        <label class="custom-control-label" for="customRadio1">Ja, ich komme</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" style="vertical-align: middle;" id="customRadio2" name="customRadio" class="custom-control-input" onclick="enable()&einblenden()">
+        <label class="custom-control-label" for="customRadio2">Nein, ich komme nicht</label>
+    </div>
+    </div>
+    <div class="form-group" id="g1">
+        <label for="exampleFormControlTextarea1" class="hide" id="label1">Grund des Fehlens:</label>
+        <textarea class="form-control hide" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="button" onclick="absenden()" class="btn btn-primary" id="myBtn" disabled >Anmeldung absenden</button>
+    <!--<form action="Resources/Private/Templates/agenda.php" method="get">-->
+    <button type="submit" class="btn btn-primary" id="agenda" name="" onclick="tokenWeitergeben()">Agenda herunterladen</button>
+   <!-- </form> -->
+</section>
+<script>
+    function absenden() {
+        let teilnahme = "";
+        if(document.getElementById("customRadio1").checked = true){
+            teilnahme = "1";
+            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7)});
+        }
+        if(document.getElementById("customRadio2").checked = true){
+            teilnahme = "2";
+            let grund = document.getElementById("exampleFormControlTextarea1");
+            console.log(grund.value);
+            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7),grund:grund.value});
+        }
+
+
+
+
+    }
+
+   function enable() {
+       document.getElementById("myBtn").disabled=false;
+   }
+
+   function tokenWeitergeben(){
+        console.log(window.location.search.substr(7));
+
+   }
+
+   function einblenden(){
+
+       var x = document.getElementById("label1");
+       var y = document.getElementById("exampleFormControlTextarea1");
+       if (x.style.display === "none") {
+
+           x.style.display = "block";
+       }else{
+           x.style.display = "block";
+
+       }
+
+       if(y.style.display === "none"){
+           y.style.display = "block";
+
+       }else{
+           y.style.display = "block";
+       }
+   }
+
+   function ausblenden(){
+
+       var x = document.getElementById("label1");
+       var y = document.getElementById("exampleFormControlTextarea1");
+       if (x.style.display === "block") {
+
+           x.style.display = "none";
+       }else{
+           x.style.display = "none";
+       }
+
+       if(y.style.display === "block"){
+           y.style.display = "none";
+
+       }else{
+           y.style.display = "none";
+       }
+
+
+   }
+
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
