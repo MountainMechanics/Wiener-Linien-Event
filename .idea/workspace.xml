@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f27e73b-4afe-46ff-8b16-363edb1a2af1" name="Default Changelist" comment="first merged project commit">
-      <change beforePath="$PROJECT_DIR$/.idea/Wiener-Linien-Event.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Wiener-Linien-Event.iml" afterDir="false" />
+    <list default="true" id="4f27e73b-4afe-46ff-8b16-363edb1a2af1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/editor.php" beforeDir="false" afterPath="$PROJECT_DIR$/editor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/auto-preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/auto-preview.js" afterDir="false" />
@@ -18,20 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/auto-preview.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="611">
+              <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/editor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
+            <state relative-caret-position="238">
+              <caret line="179" column="184" selection-start-line="179" selection-start-column="184" selection-end-line="179" selection-end-column="184" />
             </state>
           </provider>
         </entry>
@@ -46,8 +45,8 @@
       <list>
         <option value="$PROJECT_DIR$/DB/UserDatabaseTemplate.php" />
         <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/editor.php" />
         <option value="$PROJECT_DIR$/js/auto-preview.js" />
+        <option value="$PROJECT_DIR$/editor.php" />
       </list>
     </option>
   </component>
@@ -141,12 +140,20 @@
       <option name="presentableId" value="Default" />
       <updated>1558611186814</updated>
       <workItem from="1558611187976" duration="1692000" />
-      <workItem from="1558955622707" duration="786000" />
+      <workItem from="1558955622707" duration="1787000" />
     </task>
+    <task id="LOCAL-00001" summary="variable text input field count on live preview">
+      <created>1558956484726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558956484726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2478000" />
+    <option name="totallyTimeSpent" value="3479000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -188,7 +195,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="first merged project commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first merged project commit" />
+    <MESSAGE value="variable text input field count on live preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="variable text input field count on live preview" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DB/UserDatabase.php">
@@ -233,17 +241,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/editor.php">
+    <entry file="file://$PROJECT_DIR$/js/auto-preview.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="173" column="64" selection-start-line="173" selection-start-column="64" selection-end-line="173" selection-end-column="64" />
+        <state relative-caret-position="611">
+          <caret line="40" column="79" selection-start-line="40" selection-start-column="79" selection-end-line="40" selection-end-column="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/auto-preview.js">
+    <entry file="file://$PROJECT_DIR$/editor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="238">
+          <caret line="179" column="184" selection-start-line="179" selection-start-column="184" selection-end-line="179" selection-end-column="184" />
         </state>
       </provider>
     </entry>

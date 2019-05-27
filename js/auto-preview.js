@@ -27,4 +27,21 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    //Images
+    [
+        ["#validatedCustomFile", ".live-view .preview-pic"]
+    ].forEach((x) => {
+            document.querySelector(x[0]).addEventListener('change', () => {
+                if (document.querySelector(x[0]).files && document.querySelector(x[0]).files[0]) {
+                    let reader = new FileReader();
+
+                    reader.onload = (e) => document.querySelector(x[1]).src = e.target.result;
+
+                    reader.readAsDataURL(document.querySelector(x[0]).files[0]);
+                }
+
+                document.querySelector(x[0]).innerHTML = document.querySelector(x[1]).value;
+            });
+    });
 });
