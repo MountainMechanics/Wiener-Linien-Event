@@ -172,8 +172,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <h6 class="preview-date-begin">*Datum Beginn*</h6>
                 <h6 class="preview-date-end">*Datum Ende*</h6>
                 <h6 class="preview-street">*Straße* *Hausnummer*</h6>
-                <h6 class="preview-plz">*PLZ*</h6>
-                <h6 class="preview-loc">*Ort*</h6>
+                <h6 class="preview-plz-loc">*PLZ* *Ort*</h6>
             </div>
         </section>
         <br>

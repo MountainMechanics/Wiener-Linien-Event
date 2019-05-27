@@ -4,8 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ["#eventTitel", ".live-view .preview-title"],
         ["#event-details", ".live-view .preview-opening"],
         ["#strasse", "#hNummer", ".live-view .preview-street"],
-        ["#ort", ".live-view .preview-loc"],
-        ["#plz", ".live-view .preview-plz"]
+        ["#plz", "#ort", ".live-view .preview-plz-loc"]
     ].forEach((x) => {
         for(let i = 0; i < x.length - 1; i++) {
             document.querySelector(x[i]).addEventListener('change', () => {
@@ -35,9 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector(x[0]).addEventListener('change', () => {
                 if (document.querySelector(x[0]).files && document.querySelector(x[0]).files[0]) {
                     let reader = new FileReader();
-
                     reader.onload = (e) => document.querySelector(x[1]).src = e.target.result;
-
                     reader.readAsDataURL(document.querySelector(x[0]).files[0]);
                 }
 
