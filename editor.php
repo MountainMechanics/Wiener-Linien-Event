@@ -55,7 +55,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <!-- Event titel -->
                 <div class="e-spacing" >
                     <label for="eventTitel">Event-Titel</label><br>
-                    <input type="text" id="eventTitel" placeholder="Title your event" name="eventTitel" required>
+                    <input type="text" id="eventTitel" placeholder="Geben Sie Ihrem Event einen Namen" name="eventTitel" required>
                     <div class="invalid-feedback">
                         Ein Event braucht einen Namen
                     </div>
@@ -64,7 +64,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <!-- Event untertitel -->
                 <div class="e-spacing" >
                     <label for="eventUTitel">Event-Untertitel</label><br>
-                    <input type="text" id="eventUTitel" placeholder="Add a subheading" name="eventUTitel">
+                    <input type="text" id="eventUTitel" placeholder="Geben Sie eine Unterüberschrift ein" name="eventUTitel">
                 </div>
 
                 <!-- Datepicker -->
@@ -122,7 +122,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 
                     <div class="col">
                         <label>Eventbeschreibung</label><br>
-                        <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Write a description here" ></textarea>
+                        <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Beschreiben Sie Ihr Event" ></textarea>
                         <div class="invalid-feedback">
                             Bitte geben Sie eine Eventbeschreibung an.
                         </div>
@@ -158,8 +158,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 
 
             <div>
-                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                <button type="reset" class="btn btn-info btn-sm">Reset</button>
+                <button type="submit" class="btn btn-primary btn-sm">Senden</button>
+                <button type="reset" class="btn btn-info btn-sm">Zurücksetzen</button>
             </div>
         </form>
     </div>
