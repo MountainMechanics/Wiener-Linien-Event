@@ -20,7 +20,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/formStyles.css">
-    <script src="js/form-validation.js"></script>
+    <!--<script src="js/form-validation.js"></script>-->
     <script src="js/auto-preview.js"></script>
     <!-- END: Bootstrap requires this -->
 
@@ -198,6 +198,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 <?php
 require 'src/Mail.php';
 require 'DB/UserDatabase.php';
+require 'src/Token.php';
 //require 'src/Database.php';
 
 
@@ -205,14 +206,22 @@ if(isset($_POST['eventTitel'])){
 
     //echo $_POST['time'];
     //echo 'send';
+    //echo $_SESSION['username'];
+    createEvent();
     $recipients = XLSXReader::readXlsxFile($_FILES['event-users']['name']);
-    Mail::sendMail($recipients);
+    foreach ($recipients as &$recipient){
+        $recipient['token'] = WienerLinien\Token::generateToken();
+    }
+    echo '<pre>';
+    var_dump($recipients);
+    echo '</pre>';
+    createParticipants($recipients);
 
-    createUsers($recipients);
+    Mail::sendMail($recipients);
 }
 
 
-function createUsers($recipients){
+function createEvent(){
 
     $connectionParams = array(
         'dbname' => 'wienerlinieneventtool',
@@ -230,14 +239,9 @@ function createUsers($recipients){
         ->select('MAX(pk_id)')
         ->from('events_');
 
-    $results = $queryBuilder->execute()->fetchAll();
-
-    $queryBuilder
-        ->select('pk_id')
-        ->from('Organizer')
-        ->where('username = ?')
-        ->setParameter(0, $_SESSION['username']);
-
+    $GLOBALS['event_id'] = $queryBuilder->execute()->fetch();
+    var_dump($GLOBALS['event_id']['MAX(pk_id)']);
+    $GLOBALS['event_id']['MAX(pk_id)'] = (int)($GLOBALS['event_id']['MAX(pk_id)'])+1;
 
 
     $queryBuilder
@@ -248,7 +252,7 @@ function createUsers($recipients){
                 'description' => '?',
                 'plz' => '?',
                 'ort' => '?',
-                'straße' => '?',
+                'strasse' => '?',
                 'title' => '?',
                 'opening_text' => '?',
                 'second_text' => '?',
@@ -258,21 +262,64 @@ function createUsers($recipients){
                 'fk_creator' => '?'
             )
         )
-        ->setParameter(0, $results[0]['MAX(pk_id)']+1)
+        ->setParameter(0, $GLOBALS['event_id']['MAX(pk_id)'])
         ->setParameter(1, $_POST['event-descr'])
         ->setParameter(2, $_POST['plz'])
         ->setParameter(3, $_POST['ort'])
         ->setParameter(4, $_POST['straße'])
         ->setParameter(5, $_POST['eventTitel'])
         ->setParameter(6, $_POST['event-detail'])
-        ->setParameter(7, /*$_POST['event-second']*/ "")
+        ->setParameter(7, '')
         ->setParameter(8, $_POST['date'])
         ->setParameter(9, $_POST['time'])
         ->setParameter(10, $_FILES['event-agenda']['tmp_name'])
         ->setParameter(11, $_SESSION['userID']);
-   // echo 'UserID: '.$_SESSION["userID"];
-    //$sql = "SELECT blogentry.title, blogentry.content, author.first_name, author.last_name FROM blogentry INNER JOIN author ON fk_author_id = author_id";
-    //echo $stmt->fetch();
+
+    $queryBuilder->execute();
+}
+
+function createParticipants($recipients){
+
+    $connectionParams = array(
+        'dbname' => 'wienerlinieneventtool',
+        'user' => 'root',
+        'password' => '',
+        'host' => 'localhost',
+        'driver' => 'pdo_mysql',
+    );
+
+    $config = new \Doctrine\DBAL\Configuration();
+    $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+    $queryBuilder = $conn->createQueryBuilder();
+
+    //WienerLinien\Token::generateUserTokens($recipients);
+
+
+
+    foreach ($recipients as $recipient){
+        $queryBuilder
+            ->insert('participants')
+            ->values(
+                array(
+                    'pk_id' => '?',
+                    'first_name' => '?',
+                    'last_name' => '?',
+                    'fk_event' => '?',
+                    'token' => '?',
+                    'answer' => '?',
+                    'teilnahme' => '?'
+                )
+            )
+            ->setParameter(0, null)
+            ->setParameter(1, $recipient['B'])
+            ->setParameter(2, $recipient['C'])
+            ->setParameter(3, $GLOBALS['event_id']['MAX(pk_id)'])
+            ->setParameter(4, $recipient['token'])
+            ->setParameter(5, '')
+            ->setParameter(6, 0);
+
+        $queryBuilder->execute();
+    }
 }
 
 ?>

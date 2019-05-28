@@ -19,17 +19,17 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 */
 
 class XLSXReader{
-    public static function readXlsxFile($XlsxFilePath){
-        $spreadsheet = IOFactory::load($XlsxFilePath);
-        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-        foreach ($sheetData as $key => $row){
-            if(empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])){
-                unset($sheetData[$key]);
-                array_values($sheetData);
-            }
-        }
-        //var_dump($sheetData);
-        return $sheetData;
+            public static function readXlsxFile($XlsxFilePath){
+                $spreadsheet = IOFactory::load($XlsxFilePath);
+                $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+                foreach ($sheetData as $key => $row){
+                    if(empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])){
+                        unset($sheetData[$key]);
+                        array_values($sheetData);
+                    }
+                }
+                //var_dump($sheetData);
+                return $sheetData;
     }
 
 

@@ -68,6 +68,7 @@ class Mail{
 
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->addEmbeddedImage($tempImagePath, "picture");
+                $token = $recipient['token'];
                 //$mail->addAttachment($_FILES['event-picture']['tmp_name']);
                 $mail->Subject = 'Eventeinladung';
                 $mail->Body    = <<<END
@@ -80,7 +81,7 @@ class Mail{
 <h3>$subheading</h3>
 <img src="cid:picture"/>
 <p>$desc</p>
-<button class="btn btn-primary">Anmeldung & Details</button>
+<a class="btn btn-primary" href="loginConformation/loginConformation.php?token=$token">Anmeldung & Details</a>
 </body>
 </html>
 END;

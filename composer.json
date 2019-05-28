@@ -2,6 +2,7 @@
     "require": {
         "doctrine/dbal": "^2.9",
         "phpoffice/phpspreadsheet": "^1.6",
-        "phpmailer/phpmailer": "^6.0"
+        "phpmailer/phpmailer": "^6.0",
+        "typo3fluid/fluid": "^2.6"
     }
 }

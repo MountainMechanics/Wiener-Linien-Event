@@ -1,4 +1,7 @@
 <?php
+
+// TODO add indication if login didnt work
+
 if(!isset($_SESSION))
 {
     session_start();
