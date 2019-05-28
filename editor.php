@@ -171,13 +171,12 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
             <div id="b1">
                 <h6 class="preview-date-begin">*Datum Beginn*</h6>
                 <h6 class="preview-date-end">*Datum Ende*</h6>
-                <h6 class="preview-street">*Straße*</h6>
-                <h6 class="preview-plz">*PLZ*</h6>
-                <h6 class="preview-loc">*Ort*</h6>
+                <h6 class="preview-street">*Straße* *Hausnummer*</h6>
+                <h6 class="preview-plz-loc">*PLZ* *Ort*</h6>
             </div>
         </section>
         <br>
-        <img class="preview-pic" src="https://ghanatalksbusiness.com/wp-content/uploads/2017/09/small-business.jpg">
+        <img class="preview-pic" src="https://leaderonomics.com/wp-content/uploads/2018/07/Double-exposure-concept-with-thinking-businessman-and-city_BUSINESS_BUILDING_USED-770x470.jpg">
         <section>
             <p id="begruessung">Sehr geehrte/r Herr/Frau Max Mustermann,<p>
             <p id="t2" class="preview-opening">*Opening*</p>
