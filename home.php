@@ -12,14 +12,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true" && isset($_SESSION["
 ?>
 <?php
 require 'vendor/autoload.php';
+require 'DB/UserDatabase.php';
+
 $config = new \Doctrine\DBAL\Configuration();
-$connectionParams = array (
-'dbname' => 'WienerLinienEventTool',
-'user' => 'root',
-'password' => '',
-'host' => 'localhost',
-'driver' => 'pdo_mysql',
-);
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
 if(isset($_GET['delete'])){

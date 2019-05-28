@@ -14,15 +14,7 @@ $pw = htmlspecialchars($_POST['pw']);
 
 
 $config = new \Doctrine\DBAL\Configuration();
-$connectionParams = array (
-    'dbname' => 'WienerLinienEventTool',
-    'user' => 'root',
-    'password' => '',
-    'host' => 'localhost',
-    'driver' => 'pdo_mysql',
-
-
-);
+require 'DB/UserDatabase.php';
 
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 //$sql = 'SELECT username FROM Organizer

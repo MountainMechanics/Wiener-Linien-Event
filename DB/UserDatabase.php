@@ -1,6 +1,6 @@
 <?php
 $connectionParams = array(
-    'dbname' => 'webt-dbaldemo',
+    'dbname' => 'wienerlinieneventtool',
     'user' => 'root',
     'password' => '',
     'host' => 'localhost',
