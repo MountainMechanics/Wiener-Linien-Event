@@ -5,4 +5,5 @@ $connectionParams = array(
     'password' => '',
     'host' => '',
     'driver' => 'pdo_mysql',
+    'charset'  => 'utf8'
 );
