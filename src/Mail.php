@@ -65,7 +65,9 @@ class Mail{
                 fwrite($tempFile, $txt);
                 fclose($tempFile);
 
-                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->isHTML(true);// Set email format to HTML
+                $mail->Encoding = 'base64';
+                $mail->CharSet = 'UTF-8';
                 $mail->addEmbeddedImage($tempImagePath, "picture");
                 $token = $recipient['token'];
                 //$mail->addAttachment($_FILES['event-picture']['tmp_name']);
