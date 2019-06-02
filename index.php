@@ -24,11 +24,13 @@ echo '
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <img src="images/WL_logo.svg" id="logo">
-            <a class="nav-item nav-link active" href="home.php">Übersichtsseite</a>
-            <a class="nav-item nav-link " href="editor.php">Editor</a>
+            <a class="nav-item nav-link" href="home.php">Übersichtsseite</a>
+            <a class="nav-item nav-link" href="editor.php">Editor</a>
         </div>
     </div>
 </nav>
+<div id="statusbar">
+</div>
     <div class="border" id="formular">
 
         <form class="needs-validation" novalidate method="post" action="login.php">
@@ -37,7 +39,7 @@ echo '
                 <div>
                     <div class="formelement" id="formularelementtop">
                         <label for="InputUsername">Username</label>
-                        <input type="email" name="username" class="form-control" id="InputUsername" aria-describedby="usernameHelp" placeholder="Username" required>
+                        <input type="text" name="username" class="form-control" id="InputUsername" aria-describedby="usernameHelp" placeholder="Username" required>
                     </div>
                     <div class="formelement">
                         <label for="InputPassword">Password</label>
@@ -60,3 +62,12 @@ echo '
 </body>
 </html>
 ';
+if(isset($_GET["invalid"]) && $_GET["invalid"] == "true") {
+    echo '<script>                    
+                var div = document.createElement("div");
+                div.textContent = "Username bzw. Passwort falsch!";
+                div.setAttribute("class","alert alert-danger");
+                div.setAttribute("role","alert");
+                document.getElementById("statusbar").appendChild(div);  
+            </script>';
+}

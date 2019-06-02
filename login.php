@@ -52,8 +52,9 @@ if (($userData = $queryBuilder->execute()->fetchAll())!=null){
     header("Location: home.php");
     //include 'home.php';
 }else {
+
    // include 'index.php';
-    header("Location: index.php");
+    header("Location: index.php?invalid=true");
     $_SESSION["login"] = "false";
 }
 

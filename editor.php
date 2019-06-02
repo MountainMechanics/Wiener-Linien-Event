@@ -3,10 +3,7 @@ if(!isset($_SESSION)) {
     session_start();
 }
 if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
-    //  header("Location: editor.php");
-    // include 'editor.php';
 }else{
-    // include 'index.php';
     header("Location: index.php");
 }
 ?>
@@ -20,7 +17,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/formStyles.css">
-    <!--<script src="js/form-validation.js"></script>-->
+    <!--  <script src="js/form-validation.js"></script>-->
     <script src="js/auto-preview.js"></script>
     <!-- END: Bootstrap requires this -->
 
@@ -39,6 +36,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
     </div>
 </nav>
 <!-- unified navbar END-->
+
+
+<!-- Statusbar navbar -->
+<div id="statusbar">
+</div>
+<!-- Statusbar navbar END-->
+
 <div class="allContent">
     <div class="editor">
         <form name="eventCreator" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
@@ -158,7 +162,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 
 
             <div>
-                <button type="submit" class="btn btn-primary btn-sm">Senden</button>
+                <button type="submit" onclick="setStatusbar()" class="btn btn-primary btn-sm">Senden</button>
                 <button type="reset" class="btn btn-info btn-sm">Zurücksetzen</button>
             </div>
         </form>
@@ -198,40 +202,47 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 require 'src/Mail.php';
 require 'DB/UserDatabase.php';
 require 'src/Token.php';
-//require 'src/Database.php';
 
+//require 'src/Database.php';
+$config = new \Doctrine\DBAL\Configuration();
+$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
 if(isset($_POST['eventTitel'])){
-
     //echo $_POST['time'];
     //echo 'send';
     //echo $_SESSION['username'];
-    createEvent();
-    $recipients = XLSXReader::readXlsxFile($_FILES['event-users']['name']);
+    createEvent($conn);
+    $recipients = XLSXReader::readXlsxFile($_FILES['event-users']['tmp_name']);
     foreach ($recipients as &$recipient){
         $recipient['token'] = WienerLinien\Token::generateToken();
     }
-    echo '<pre>';
+    /*echo '<pre>';
     var_dump($recipients);
-    echo '</pre>';
-    createParticipants($recipients);
+    echo '</pre>';*/
+    createParticipants($conn,$recipients);
 
     Mail::sendMail($recipients);
+    echo '<script>                    
+                var div = document.createElement("div");
+                div.textContent = "Eventeinladungen erfolgreich verschickt";
+                div.setAttribute("class","alert alert-success");
+                div.setAttribute("role","alert");
+                document.getElementById("statusbar").appendChild(div);  
+            </script>';
 }
 
 
-function createEvent(){
-
+function createEvent($conn){
+/*
     $connectionParams = array(
         'dbname' => 'wienerlinieneventtool',
         'user' => 'root',
         'password' => '',
         'host' => 'localhost',
         'driver' => 'pdo_mysql',
-    );
+    );*/
 
-    $config = new \Doctrine\DBAL\Configuration();
-    $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
     $queryBuilder = $conn->createQueryBuilder();
 
     $queryBuilder
@@ -271,24 +282,14 @@ function createEvent(){
         ->setParameter(7, '')
         ->setParameter(8, $_POST['date'])
         ->setParameter(9, $_POST['time'])
-        ->setParameter(10, $_FILES['event-agenda']['tmp_name'])
+        ->setParameter(10,$_FILES['event-agenda']['tmp_name'])
         ->setParameter(11, $_SESSION['userID']);
 
     $queryBuilder->execute();
 }
 
-function createParticipants($recipients){
+function createParticipants($conn,$recipients){
 
-    $connectionParams = array(
-        'dbname' => 'wienerlinieneventtool',
-        'user' => 'root',
-        'password' => '',
-        'host' => 'localhost',
-        'driver' => 'pdo_mysql',
-    );
-
-    $config = new \Doctrine\DBAL\Configuration();
-    $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
     $queryBuilder = $conn->createQueryBuilder();
 
     //WienerLinien\Token::generateUserTokens($recipients);

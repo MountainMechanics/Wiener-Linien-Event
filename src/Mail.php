@@ -7,12 +7,12 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'vendor/autoload.php';
 require 'XLSXReader.php';
-
+require 'smtpServerCredentials.php';
 
 class Mail{
     public static function sendMail($recipients){
+       $smtpServerCredentials = smtpServerCredentials::smtpServerCredentialsData();
         foreach ($recipients as $recipient){
-
             $mail = new PHPMailer();
             //echo $recipient['D'];
             // To load the French version
@@ -22,25 +22,24 @@ class Mail{
                 //Server settings
                 $mail->SMTPDebug = 0;                                       // Enable verbose debug output
                 $mail->isSMTP();                                            // Set mailer to use SMTP
-                $mail->Host       = 'smtp-mail.outlook.com';  // Specify main and backup SMTP servers
+                $mail->Host       = $smtpServerCredentials['Host'];  // Specify main and backup SMTP servers
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = '6138@htl.rennweg.at';                     // SMTP username
-                $mail->Password   = 'NPN1KA5S';                               // SMTP password
+                $mail->Username   = $smtpServerCredentials['Username'];                     // SMTP username
+                $mail->Password   = $smtpServerCredentials['Password'];                               // SMTP password
                 $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
-                $mail->Port       = 587;                                    // TCP port to connect to
+                $mail->Port       = $smtpServerCredentials['Port'];                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('6138@htl.rennweg.at', 'Alex1');
+                $mail->setFrom($smtpServerCredentials['senderAccount'], $smtpServerCredentials['senderName']);
                // $mail->addAddress('a.gruebling@gmail.com', 'Joe User');     // Add a recipient     // Name is optional
                 $mail->addAddress($recipient['D']);
-                $mail->addReplyTo('6138@htl.rennweg.at', 'Information');
+                $mail->addReplyTo($smtpServerCredentials['senderAccount'], 'Information');
                 //$mail->addCC('cc@example.com');
                 //$mail->addBCC('bcc@example.com');
 
                 // Attachments
                 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
                 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-
                 // Content
                 $heading = $_POST['eventTitel'];
                 $subheading = $_POST['eventUTitel'];
@@ -61,7 +60,7 @@ class Mail{
                 $pfile = fopen($_FILES['event-picture']['tmp_name'], "r") or die("Unable to open file!");
                 $tempImagePath = $_FILES['event-picture']['tmp_name']."tempJPG.jpg";
                 $tempFile = fopen($tempImagePath, "w") or die("Unable to open file!");
-                $txt = fread($pfile,filesize($_FILES['event-picture']['tmp_name']));;
+                $txt = fread($pfile,filesize($_FILES['event-picture']['tmp_name']));
                 fclose($pfile);
                 fwrite($tempFile, $txt);
                 fclose($tempFile);
@@ -90,16 +89,15 @@ END;
 
                 $mail->send();
                 unlink($tempImagePath);
-                //echo 'Message has been sent';
 
+
+
+                //echo 'Message has been sent';
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                echo $e;
             }
         }
-        echo '<div class="alert alert-success">
-                  <strong>Success!</strong> Indicates a successful or positive action.
-                </div>';
     }
 }
-
 

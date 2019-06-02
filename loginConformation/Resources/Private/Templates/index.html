@@ -122,8 +122,10 @@
     </div>
     <button type="button" onclick="absenden()" class="btn btn-primary" id="myBtn" disabled >Anmeldung absenden</button>
     <!--<form action="Resources/Private/Templates/agenda.php" method="get">-->
-    <button type="submit" class="btn btn-primary" id="agenda" name="" onclick="tokenWeitergeben()">Agenda herunterladen</button>
+    <a href="{ICS}"><button type="button" class="btn btn-primary" id="outLookCalendar" name="" >Kalender herunterladen</button></a>
+    <a download="somedata.doc" href="{agenda}"><button type="button" class="btn btn-primary"   name="" onclick="tokenWeitergeben()">Agenda herunterladen</button></a>
    <!-- </form> -->
+    <p>{agenda}</p>
 </section>
 <script>
     function absenden() {
@@ -139,10 +141,8 @@
             $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7),grund:grund.value});
         }
 
-
-
-
     }
+
 
    function enable() {
        document.getElementById("myBtn").disabled=false;

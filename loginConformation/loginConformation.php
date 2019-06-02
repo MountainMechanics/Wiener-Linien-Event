@@ -7,7 +7,6 @@
  */
 require 'vendor/autoload.php';
 require 'Token.php';
-//echo "123";
 
 $config = new \Doctrine\DBAL\Configuration();
 require "../DB/UserDatabase.php";
@@ -46,7 +45,7 @@ if(isset($_GET['token'])){
         $date_begin = $row['date_begin'];
         $date_end = $row['date_end'];
         $strasse = $row['strasse'];
-
+        $agenda = $row['agenda'];
     }
 
     $view = new \TYPO3Fluid\Fluid\View\TemplateView();
@@ -59,7 +58,9 @@ if(isset($_GET['token'])){
         'plz' => '1140',
         'ort' => 'Wien',
         'strasse' => $strasse,
-        'name' => 'Bauer'
+        'name' => 'Bauer',
+        'ICS' => createICS($queryBuilder2),
+        'agenda' => $agenda
     ]);
     $paths = $view->getTemplatePaths();
     $paths->setTemplatePathAndFilename(__DIR__. '/Resources/Private/Templates/index.html');
@@ -69,6 +70,39 @@ if(isset($_GET['token'])){
     echo "Upps. Da ist wohl etwas schiefgelaufen!";
 }
 
+
+function createICS($queryBuilder)
+{
+    $statement = $queryBuilder->execute()->fetchAll();
+    $kb_start = $statement[0]['date_begin'];
+    $kb_end = $statement[0]['date_end'];
+    $kb_current_time = time();
+    $kb_title = html_entity_decode($statement[0]['title'], ENT_COMPAT, 'UTF-8');
+    $kb_location = preg_replace('/([\,;])/', '\\\$1', $statement[0]['ort'] . ', ' . $statement[0]['plz'] . ', ' . $statement[0]['strasse']);
+    $kb_description = html_entity_decode($statement[0]['description'], ENT_COMPAT, 'UTF-8');
+    $kb_file_name = 'Outlook_Termin('.$statement[0]['title'].")";
+
+    $kb_ical = fopen($kb_file_name . '.ics', 'w') or die('Datei kann nicht gespeichert werden!');
+    $eol = "\r\n";
+    $kb_ics_content =
+        'BEGIN:VCALENDAR' . $eol .
+        'VERSION:2.0' . $eol .
+        'CALSCALE:GREGORIAN' . $eol .
+        'BEGIN:VEVENT' . $eol .
+        'DTSTART:' . $kb_start . $eol .
+        'DTEND:' . $kb_end . $eol .
+        'LOCATION:' . $kb_location . $eol .
+        'DTSTAMP:' . $kb_current_time . $eol .
+        'SUMMARY:' . $kb_title . $eol .
+        'DESCRIPTION:' . $kb_description . $eol .
+        'UID:' . $kb_current_time . '-' . $kb_start . '-' . $kb_end . $eol .
+        'END:VEVENT' . $eol .
+        'END:VCALENDAR';
+    fwrite($kb_ical, $kb_ics_content);
+    fclose($kb_ical);
+
+    return $kb_file_name . '.ics';
+}
 
 
 
