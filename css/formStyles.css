@@ -4,6 +4,10 @@ Uses:
 Bootstrap 4.3.1 (injected in editor.html)
 */
 
+
+/*
+    Basic form styles to align it properly
+*/
 form {
     margin: 3% 0 3% 3%;
     align-content: center;
@@ -13,10 +17,13 @@ form > *{
     padding: 15px;
 }
 
-.fileupload {
-    width: 90%;
+#content > *{
+    padding-bottom: 20px;
 }
 
+/*
+    Basic (sub-)heading styles to align them properly
+*/
 .heading{
     margin-bottom: 0;
     padding-bottom: 0;
@@ -27,9 +34,13 @@ form > *{
     padding-bottom: 0;
 }
 
-#eventTitel, #eventUTitel, #eventDescription{
+/*
+    Resizing so it aligns better and looks more pleasing
+*/
+#eventTitel, #eventUTitel, #eventDescription, .fileupload{
     width: 90%;
 }
+
 
 #eventDescription{
     height: 100px;
@@ -51,6 +62,9 @@ form > *{
     padding: 0;
 }
 
+/*
+    Resetting margin/padding
+*/
 .row{
     margin: 0;
 }
@@ -59,11 +73,18 @@ form > *{
     padding: 0;
 }
 
+/*
+    Setup for the grid
+*/
 .allContent {
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
 
+/*
+    Alignment for use in grid.
+    Centering content
+*/
 .live-view {
     display: flex;
     align-items: center;
@@ -75,6 +96,9 @@ form > *{
     border: solid lightgrey 1px;
 }
 
+/*
+    Faking a bootstrap-like dateTimePicker because bootstrap doesnt have one
+*/
 .dateTime{
     border: #a8a8a8 1px solid !important;
     border-radius: 1px;
@@ -92,11 +116,7 @@ form > *{
     display: none;
 }
 
-#content > *{
-    padding-bottom: 20px;
-}
-
-/*Andi*/
+/*Andi ---------------------------------*/
 
 .live-view h5 {
     color:#1C4B94;
