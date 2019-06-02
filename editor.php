@@ -103,7 +103,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <div class="e-text" >
                     <label class="agendaLabel" for="agendaCustomFile">Wählen Sie eine Agenda aus</label><br>
                     <div class="custom-file mx-auto fileupload">
-                        <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" required>
+                        <input type="file" class="custom-file-input" id="agendaCustomFile" name="event-agenda" accept=".pdf" required>
                         <label class="custom-file-label" for="validatedCustomFile">Datei auswählen...</label>
                         <div class="invalid-feedback">Es wurde keine Datei ausgew&auml;hlt.</div>
                     </div>

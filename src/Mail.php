@@ -80,12 +80,12 @@ class Mail{
 <h3>$subheading</h3>
 <img src="cid:picture"/>
 <p>$desc</p>
-<a class="btn btn-primary" href="loginConformation/loginConformation.php?token=$token">Anmeldung & Details</a>
+<a class="btn btn-primary" href="http://wiener.linien/loginConformation/loginConformation.php?token=$token">Anmeldung & Details</a>
 </body>
 </html>
 END;
 
-                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                $mail->AltBody = $heading.'\n'.$subheading.'\n'.$desc;
 
                 $mail->send();
                 unlink($tempImagePath);

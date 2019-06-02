@@ -45,7 +45,7 @@ if(isset($_GET['token'])){
         $date_begin = $row['date_begin'];
         $date_end = $row['date_end'];
         $strasse = $row['strasse'];
-        $agenda = $row['agenda'];
+        $GLOBALS['agenda'] = $row['agenda'];
     }
 
     $view = new \TYPO3Fluid\Fluid\View\TemplateView();
@@ -60,7 +60,7 @@ if(isset($_GET['token'])){
         'strasse' => $strasse,
         'name' => 'Bauer',
         'ICS' => createICS($queryBuilder2),
-        'agenda' => $agenda
+        'agenda' => createAgenda($queryBuilder2)
     ]);
     $paths = $view->getTemplatePaths();
     $paths->setTemplatePathAndFilename(__DIR__. '/Resources/Private/Templates/index.html');
@@ -102,6 +102,21 @@ function createICS($queryBuilder)
     fclose($kb_ical);
 
     return $kb_file_name . '.ics';
+}
+
+function createAgenda($queryBuilder)
+{
+    $statement = $queryBuilder->execute()->fetchAll();
+    $agenda_filename = 'Agenda('.$statement[0]['title'].")";
+
+    $agenda = fopen($agenda_filename . '.pdf', 'w') or die('Datei kann nicht gespeichert werden!');
+    $eol = "\r\n";
+    $agenda_content =
+        $GLOBALS['agenda'];
+    fwrite($agenda, $agenda_content);
+    fclose($agenda);
+
+    return $agenda_filename . '.pdf';
 }
 
 
