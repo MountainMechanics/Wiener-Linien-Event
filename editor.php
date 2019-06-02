@@ -282,7 +282,7 @@ function createEvent($conn){
         ->setParameter(7, '')
         ->setParameter(8, $_POST['date'])
         ->setParameter(9, $_POST['time'])
-        ->setParameter(10,$_FILES['event-agenda']['tmp_name'])
+        ->setParameter(10,file_get_contents($_FILES['event-agenda']['tmp_name']))
         ->setParameter(11, $_SESSION['userID']);
 
     $queryBuilder->execute();
