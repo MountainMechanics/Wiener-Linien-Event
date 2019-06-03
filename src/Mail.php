@@ -14,7 +14,7 @@ class Mail{
        $smtpServerCredentials = smtpServerCredentials::smtpServerCredentialsData();
         foreach ($recipients as $recipient){
             $mail = new PHPMailer();
-            //echo $recipient['D'];
+
             // To load the French version
             $mail->setLanguage('de', 'vendor\phpmailer\phpmailer\language');
 
@@ -52,11 +52,6 @@ class Mail{
                 }
                 $desc = $anrede.$recipient['A'].' '.$recipient['C'].'<br>'.$_POST['event-descr'];
 
-                //$image = $_FILES['event-picture']['tmp_name'];
-                //$aExtraInfo = getimagesize($_FILES['event-picture']['tmp_name']);
-                //$sImage = "data:" . $aExtraInfo["mime"] . ";base64," . base64_encode(file_get_contents($_FILES['event-picture']['tmp_name']));
-                //echo '<img src="'.$sImage.'"/>';
-
                 $pfile = fopen($_FILES['event-picture']['tmp_name'], "r") or die("Unable to open file!");
                 $tempImagePath = $_FILES['event-picture']['tmp_name']."tempJPG.jpg";
                 $tempFile = fopen($tempImagePath, "w") or die("Unable to open file!");
@@ -92,9 +87,6 @@ END;
                 $mail->send();
                 unlink($tempImagePath);
 
-
-
-                //echo 'Message has been sent';
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 echo $e;

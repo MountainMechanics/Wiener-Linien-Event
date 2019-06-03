@@ -9,9 +9,6 @@ class Token {
                 echo'test';
                 $user['token'] = self::generateToken();
         }
-        /*echo '<pre>';
-        var_dump($users);
-        echo '</pre>';*/
     }
 
     public static function generateToken($tokenLength = 16) {

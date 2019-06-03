@@ -43,7 +43,8 @@ if(isset($_GET['token'])){
         $opening_text = $row['opening_text'];
         $second_text = $row['second_text'];
         $date_begin = $row['date_begin'];
-        $date_end = $row['date_end'];
+        $time_begin = $row['time_begin'];
+        $time_end = $row['time_end'];
         $strasse = $row['strasse'];
         $GLOBALS['agenda'] = $row['agenda'];
     }
@@ -54,7 +55,8 @@ if(isset($_GET['token'])){
         'opening_text' => $opening_text,
         'second_text' => $second_text,
         'date_begin' => $date_begin,
-        'date_end' => $date_end,
+        'time_begin' => $time_begin,
+        'time_end' => $time_end,
         'plz' => '1140',
         'ort' => 'Wien',
         'strasse' => $strasse,
@@ -74,8 +76,8 @@ if(isset($_GET['token'])){
 function createICS($queryBuilder)
 {
     $statement = $queryBuilder->execute()->fetchAll();
-    $kb_start = $statement[0]['date_begin'].'T000000';
-    $kb_end = $statement[0]['date_end'].'T235900';
+    $kb_start = $statement[0]['date_begin'].'T'.$statement[0]['time_begin'];
+    $kb_end = $statement[0]['date_begin'].'T'.$statement[0]['time_end'];
     $kb_current_time = time();
     $kb_title = html_entity_decode($statement[0]['title'], ENT_COMPAT, 'UTF-8');
     $kb_location = preg_replace('/([\,;])/', '\\\$1', $statement[0]['ort'] . ', ' . $statement[0]['plz'] . ', ' . $statement[0]['strasse']);
