@@ -10,7 +10,7 @@ create table Organizer (
   first_name varchar(20),
   last_name varchar(20),
   username varchar(20) unique,
-  password_ varchar(200)
+  password_ varchar(256)
 );
 
 create table events_ (
@@ -43,13 +43,12 @@ create table Participants (
 
 
 insert into Organizer(pk_id, first_name, last_name, username, password_)
-values (1,'Admin','Admin', 'root', 'root');
+values (1,'Admin','Admin', 'root', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2');
 insert into Organizer(pk_id, first_name, last_name, username, password_)
-values (2,'Christian','Bauer', 'bauer007', 'Passwort');
+values (2,'Christian','Bauer', 'bauer', 'a7819a303502d520f66ee70ebb9c90bd6972d1aa6cb4265c705a8a528857d984');
 insert into Organizer(pk_id, first_name, last_name, username, password_)
-values (3,'Hans','Peter', 'xXPeterXx', 'pw');
-insert into Organizer(pk_id, first_name, last_name, username, password_)
-values (4,'Gerhard','Schaf', 'Gerhard1', 'SchafSchaf');
+values (3,'Peter','Hasitschka', 'hasitschka', 'ab99613c5e3e0a2f6d9b5d8b18b0cc882d14414ad746bdefdd248b0f1af55ad3');
+
 
 insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, time_begin, time_end, agenda,fk_creator)
 values(1,'Wir moechten Sie hiermit zur Geburtstagsfeier vom Sebastian einladen','1140','Wien','Linzerstrasse','Geburtstagsfeier vom Sebi Kaese','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-12-12","05:03:22","07:08:25",01010101,1);
