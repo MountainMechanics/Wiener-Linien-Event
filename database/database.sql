@@ -23,7 +23,8 @@ create table events_ (
   opening_text varchar(10000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   second_text varchar(10000) CHARACTER SET utf8 COLLATE utf8_general_ci,
   date_begin DATE,
-  date_end DATE,
+  time_begin time,
+  time_end time,
   fk_creator integer,
   agenda MEDIUMBLOB,
   constraint fk_creator_c foreign key (fk_creator) references Organizer(pk_id)
@@ -50,14 +51,14 @@ values (3,'Hans','Peter', 'xXPeterXx', 'pw');
 insert into Organizer(pk_id, first_name, last_name, username, password_)
 values (4,'Gerhard','Schaf', 'Gerhard1', 'SchafSchaf');
 
-insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, date_end, agenda,fk_creator)
-values(1,'Wir moechten Sie hiermit zur Geburtstagsfeier vom Sebastian einladen','1140','Wien','Linzerstrasse','Geburtstagsfeier vom Sebi Kaese','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-12-12","2017-11-12",01010101,1);
+insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, time_begin, time_end, agenda,fk_creator)
+values(1,'Wir moechten Sie hiermit zur Geburtstagsfeier vom Sebastian einladen','1140','Wien','Linzerstrasse','Geburtstagsfeier vom Sebi Kaese','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-12-12","05:03:22","07:08:25",01010101,1);
 
-insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, date_end, agenda,fk_creator)
-values(2,'Wir moechten uns am kommenden Samstag zum Grillen bei der U-Bahn Station Wien Mitte treffen','1030','Wien','Landstrasse','Grillen am Samstag','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-05-12","2017-05-12",01010101,2);
+insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, time_begin, time_end, agenda,fk_creator)
+values(2,'Wir moechten uns am kommenden Samstag zum Grillen bei der U-Bahn Station Wien Mitte treffen','1030','Wien','Landstrasse','Grillen am Samstag','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-05-12","20:15:00","22:00:00",01010101,2);
 
-insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, date_end, agenda,fk_creator)
-values(3,'Teambuilding-Event','1010','Wien','Stephansplatz','Ein spannendes Event zur Stärkung der Gruppendynamik','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-02-14","2017-02-16",01010101,3);
+insert into events_(pk_id, description, plz, ort, strasse, title, opening_text, second_text, date_begin, time_begin, time_end, agenda,fk_creator)
+values(3,'Teambuilding-Event','1010','Wien','Stephansplatz','Ein spannendes Event zur Stärkung der Gruppendynamik','Bitte sagen Sie entweder zu oder ab, damit wir das Fest vollkommen durchplanen koennen','XYZ',"2017-02-14","15:30:00","17:00:00",01010101,3);
 
 insert into Participants(pk_id, first_name, last_name, fk_event, token, answer, teilnahme)
 values(1,'Sebastian','Kaese',1,'fihwbkwoaqztglme','',0);
