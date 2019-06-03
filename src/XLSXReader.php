@@ -11,6 +11,7 @@
  */
 
 require 'vendor/autoload.php';
+
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /*
@@ -18,26 +19,32 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
  * $sheetData[1]["Vorname"] enthält den Vornamen der ersten Reihe
 */
 
-class XLSXReader{
-            public static function readXlsxFile($XlsxFilePath){
-                $spreadsheet = IOFactory::load($XlsxFilePath);
-                $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-                foreach ($sheetData as $key => $row){
-                    if(empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])){
-                        unset($sheetData[$key]);
-                        array_values($sheetData);
-                    }
-                }
-                //var_dump($sheetData);
-                return $sheetData;
+class XLSXReader
+{
+
+    //Returns an array of data from cells A, B, C, and D.
+    public static function readXlsxFile($XlsxFilePath)
+    {
+        $spreadsheet = IOFactory::load($XlsxFilePath); // Loads the xlsx file
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);// get the Sheets
+        //reads all cells
+        foreach ($sheetData as $key => $row) {
+            if (empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])) {
+                unset($sheetData[$key]);
+                array_values($sheetData);
+            }
+        }
+        return $sheetData;
     }
 
-
-    public static function showXlsxFileContent($XlsxFilePath){
-        $spreadsheet = IOFactory::load($XlsxFilePath);
-        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-        foreach ($sheetData as $key => $row){
-            if(empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])){
+    //Returns an array of data from cells A, B, C, and D. Displays the cell data on the screen
+    public static function showXlsxFileContent($XlsxFilePath)
+    {
+        $spreadsheet = IOFactory::load($XlsxFilePath); // Loads the xlsx file
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true); // get the Sheets
+        //reads all cells
+        foreach ($sheetData as $key => $row) {
+            if (empty($row['A']) || empty($row['B']) || empty($row['C']) || empty($row['D'])) {
                 unset($sheetData[$key]);
                 array_values($sheetData);
             }
