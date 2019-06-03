@@ -55,6 +55,7 @@ $text= <<<FOO
             <img src="images/WL_logo.svg" id="logo">
             <a class="nav-item nav-link active" href="home.php">Übersichtsseite</a>
             <a class="nav-item nav-link " href="editor.php">Editor</a>
+            <a class="nav-item nav-link" href="login.php?logout=true">Logout</a>
         </div>
     </div>
 </nav>

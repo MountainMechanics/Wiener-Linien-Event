@@ -4,6 +4,11 @@ if(!isset($_SESSION))
 {
     session_start();
 }
+if(isset($_GET['logout']) && $_GET['logout'] == true){
+    $_SESSION['login'] = 'false';
+    $_SESSION["username"] = null;
+    $_SESSION["userID"] = null;
+}
 require './vendor/autoload.php';
 $username =htmlspecialchars($_POST['username']);
 $pw = htmlspecialchars($_POST['pw']);
