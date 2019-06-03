@@ -25,7 +25,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 </head>
 <body>
 
-<!-- unified navbar -->
+<!-- unified navbar START-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -38,7 +38,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 <!-- unified navbar END-->
 
 
-<!-- Statusbar navbar -->
+<!-- Statusbar navbar START-->
 <div id="statusbar">
 </div>
 <!-- Statusbar navbar END-->
@@ -48,15 +48,23 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
         <form name="eventCreator" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
 
             <!-- Event erstellung -------------------------------------------------- -->
+            <!--
+                This form is made to get information from the User so proper "Events" can be created.
+                The information entered gets used in:
+                    -the Email (created below this form)
+                    -the Login-Website (the one for attendees)
+                    -the Event-overview-site (home.php)
+             -->
             <header class="row">
                 <div class="col">
+                    <!-- Heading and subheading -->
                     <h2 class="heading">Erstellen Sie ihr Event</h2>
                     <span class="subheading">Hier können Sie ihr Event erstellen</span>
                 </div>
             </header>
             <div class="col" id="content">
 
-                <!-- Event titel -->
+                <!-- Event title -->
                 <div class="e-spacing" >
                     <label for="eventTitel">Event-Titel</label><br>
                     <input type="text" id="eventTitel" placeholder="Geben Sie Ihrem Event einen Namen" name="eventTitel" required>
@@ -65,13 +73,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     </div>
                 </div>
 
-                <!-- Event untertitel -->
+                <!-- Event subtitle -->
                 <div class="e-spacing" >
                     <label for="eventUTitel">Event-Untertitel</label><br>
                     <input type="text" id="eventUTitel" placeholder="Geben Sie eine Unterüberschrift ein" name="eventUTitel">
                 </div>
 
-                <!-- Datepicker -->
+                <!-- Datepicker for starting and ending dates-->
 
                 <div class="e-spacing col">
                     <label for="pickDate">Wählen Sie ein Datum aus</label><br>
@@ -90,7 +98,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     <input id="ort" name="ort" type="text" placeholder="Ort">
                 </div>
 
-                <!-- File upload -->
+                <!-- Fileuploads START-->
+
+                <!-- Mail-Picture -->
                 <div class="e-text">
                     <label class="fileLabel" for="validatedCustomFile">Wählen Sie ein Bild aus</label><br>
                     <div class="custom-file mx-auto fileupload">
@@ -100,6 +110,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     </div>
                 </div>
 
+                <!-- Agenda -->
                 <div class="e-text" >
                     <label class="agendaLabel" for="agendaCustomFile">Wählen Sie eine Agenda aus</label><br>
                     <div class="custom-file mx-auto fileupload">
@@ -109,12 +120,11 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     </div>
                 </div>
 
-                <!-- Fileupload ende -->
+                <!-- Fileuploads ende -->
 
-
-                <!-- Event Beschreibung -->
+                <!-- more information -->
                 <div class="event-info">
-                    <!-- Adressaten -->
+                    <!-- Attendees (as an Excel File)-->
                     <div class="e-text">
                         <label class="agendaLabel" for="agendaCustomFile">Wählen Sie ein Excel-File mit Teilnehmern</label><br>
                         <div class="custom-file mx-auto fileupload">
@@ -124,6 +134,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                         </div>
                     </div>
 
+                    <!-- textarea for more information about the event -->
                     <div class="col">
                         <label>Eventbeschreibung</label><br>
                         <textarea class="form-check-label" id="eventDescription" name="event-descr" placeholder="Beschreiben Sie Ihr Event" ></textarea>
@@ -133,6 +144,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     </div>
                 </div>
 
+                <!-- Space for a additional message in the E-mail -->
                 <div class="detail-wrapper">
                     <label>Email-Details</label><br>
                     <textarea class="form-check-label" id="event-details" name="event-detail" placeholder="Geben Sie hier die Email-Details an" ></textarea>
@@ -141,32 +153,16 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                     </div>
                 </div>
             </div>
-            <!-- Reminder section --RIP-----------
-            <div class="row">
-                Toggle (on/off)
-                Datepicker
-                Message
-            </div>
-            <div class="form-group"> Date input
-            <label class="control-label" for="date">Date</label>
-            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-            </div>
-            ---------------------------------- -->
 
-
-            <div>
-                <!--
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10639.38577350909!2d16.40391135!3d48.190310049999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sat!4v1557234275790!5m2!1sde!2sat" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-                -->
-            </div>
-
-
+            <!-- Submit and reset buttons -->
             <div>
                 <button type="submit" onclick="setStatusbar()" class="btn btn-primary btn-sm">Senden</button>
                 <button type="reset" class="btn btn-info btn-sm">Zurücksetzen</button>
             </div>
         </form>
     </div>
+
+    <!-- Live Preview -->
     <div class="live-view">
         <section>
             <object id="bild" data="images/WL_logo.svg" type="image/svg+xml">Ihr Browser kann leider kein svg darstellen.</object>
