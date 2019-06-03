@@ -6,6 +6,7 @@ class Token {
     public static function generateUserTokens(&$users) {
         foreach($users as $user) {
             if(!isset($user['token']))
+                echo'test';
                 $user['token'] = self::generateToken();
         }
     }
