@@ -32,6 +32,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
             <img src="images/WL_logo.svg" id="logo">
             <a class="nav-item nav-link " href="home.php">Übersichtsseite</a>
             <a class="nav-item nav-link active" href="editor.php">Editor</a>
+            <a class="nav-item nav-link" href="login.php?logout=true">Logout</a>
         </div>
     </div>
 </nav>
