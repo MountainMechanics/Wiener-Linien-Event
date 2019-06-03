@@ -204,17 +204,13 @@ $config = new \Doctrine\DBAL\Configuration();
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
 if(isset($_POST['eventTitel'])){
-    //echo $_POST['time'];
-    //echo 'send';
-    //echo $_SESSION['username'];
+
     createEvent($conn);
     $recipients = XLSXReader::readXlsxFile($_FILES['event-users']['tmp_name']);
     foreach ($recipients as &$recipient){
         $recipient['token'] = WienerLinien\Token::generateToken();
     }
-    /*echo '<pre>';
-    var_dump($recipients);
-    echo '</pre>';*/
+
     createParticipants($conn,$recipients);
 
     Mail::sendMail($recipients);
@@ -225,7 +221,6 @@ if(isset($_POST['eventTitel'])){
                 div.setAttribute("role","alert");
                 document.getElementById("statusbar").appendChild(div);  
             </script>';
-    echo $_POST['date'];
 }
 
 
@@ -281,10 +276,6 @@ function createEvent($conn){
 function createParticipants($conn,$recipients){
 
     $queryBuilder = $conn->createQueryBuilder();
-
-    //WienerLinien\Token::generateUserTokens($recipients);
-
-
 
     foreach ($recipients as $recipient){
         $queryBuilder
