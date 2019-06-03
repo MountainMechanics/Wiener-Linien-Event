@@ -74,8 +74,8 @@ if(isset($_GET['token'])){
 function createICS($queryBuilder)
 {
     $statement = $queryBuilder->execute()->fetchAll();
-    $kb_start = $statement[0]['date_begin'];
-    $kb_end = $statement[0]['date_end'];
+    $kb_start = $statement[0]['date_begin'].'T000000';
+    $kb_end = $statement[0]['date_end'].'T235900';
     $kb_current_time = time();
     $kb_title = html_entity_decode($statement[0]['title'], ENT_COMPAT, 'UTF-8');
     $kb_location = preg_replace('/([\,;])/', '\\\$1', $statement[0]['ort'] . ', ' . $statement[0]['plz'] . ', ' . $statement[0]['strasse']);
