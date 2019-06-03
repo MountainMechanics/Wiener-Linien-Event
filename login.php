@@ -26,12 +26,10 @@ $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
         ->from('Organizer')
         ->where('username=:user')
         ->andWhere('password_=:pw')
-        ->setParameter(":pw", $pw)
+        ->setParameter(":pw", hash('md5',$pw))
         ->setParameter(":user", $username);
 
     //echo $queryBuilder;
-
-
     //
 $statement = $queryBuilder->execute()->fetchAll();
     //$user = $statement->fetchAll();
