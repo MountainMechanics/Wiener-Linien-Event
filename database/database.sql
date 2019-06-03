@@ -10,7 +10,7 @@ create table Organizer (
   first_name varchar(20),
   last_name varchar(20),
   username varchar(20) unique,
-  password_ varchar(100)
+  password_ varchar(200)
 );
 
 create table events_ (
