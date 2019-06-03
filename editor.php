@@ -76,8 +76,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <div class="e-spacing col">
                     <label for="pickDate">Wählen Sie ein Datum aus</label><br>
                     Datum: <span class="dateTimeWrapper"><input name="date" id="pickDate" type="date" class="dateTime" required></span>
-                    Beginn: <span class="dateTimeWrapper"><input name="time" id="pickBeginTime" type="time" class="dateTime" required></span>
-                    Ende: <span class="dateTimeWrapper"><input name="date" id="pickEndTime" type="time" class="dateTime" required></span>
+                    Beginn: <span class="dateTimeWrapper"><input name="time-begin" id="pickBeginTime" type="time" class="dateTime" required></span>
+                    Ende: <span class="dateTimeWrapper"><input name="time-end" id="pickEndTime" type="time" class="dateTime" required></span>
                 </div>
 
 
@@ -229,18 +229,12 @@ if(isset($_POST['eventTitel'])){
                 div.setAttribute("role","alert");
                 document.getElementById("statusbar").appendChild(div);  
             </script>';
+    echo $_POST['date'];
 }
 
 
 function createEvent($conn){
-/*
-    $connectionParams = array(
-        'dbname' => 'wienerlinieneventtool',
-        'user' => 'root',
-        'password' => '',
-        'host' => 'localhost',
-        'driver' => 'pdo_mysql',
-    );*/
+
 
 
     $queryBuilder = $conn->createQueryBuilder();
@@ -281,7 +275,7 @@ function createEvent($conn){
         ->setParameter(6, $_POST['event-detail'])
         ->setParameter(7, '')
         ->setParameter(8, $_POST['date'])
-        ->setParameter(9, $_POST['time'])
+        ->setParameter(9, $_POST['date'])
         ->setParameter(10,file_get_contents($_FILES['event-agenda']['tmp_name']))
         ->setParameter(11, $_SESSION['userID']);
 

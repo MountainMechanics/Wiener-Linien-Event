@@ -130,15 +130,15 @@
 <script>
     function absenden() {
         let teilnahme = "";
-        if(document.getElementById("customRadio1").checked = true){
+        if(document.getElementById("customRadio1").checked === true){
             teilnahme = "1";
-            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7)});
+            $.get("../../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7)});
         }
-        if(document.getElementById("customRadio2").checked = true){
+        if(document.getElementById("customRadio2").checked === true){
             teilnahme = "2";
             let grund = document.getElementById("exampleFormControlTextarea1");
             console.log(grund.value);
-            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7),grund:grund.value});
+            $.get("../../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7),grund:grund.value});
         }
 
     }
