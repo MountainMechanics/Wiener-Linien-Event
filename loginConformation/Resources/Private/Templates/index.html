@@ -135,16 +135,26 @@
         let teilnahme = "";
         if(document.getElementById("customRadio1").checked === true){
             teilnahme = "1";
-            alert("Glückwunsch, Sie haben sich erfolgreich an diesem Event angemeldet!");
-            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7)});
+            fetch(`./absenden.php?teilnahme=1&token=${window.location.search.substr(7)}`)
+                .then(response => {
+                    console.log(response);
+                    if(response.status === 200){
+                        alert("Glückwunsch, Sie haben sich erfolgreich an diesem Event angemeldet!");
+                    }
+                });
 
         }
         if(document.getElementById("customRadio2").checked === true){
             teilnahme = "2";
-            alert("Glückwunsch, Ihre Absage wurde erfolgreich abgesendet!");
             let grund = document.getElementById("exampleFormControlTextarea1");
             console.log(grund.value);
-            $.get("../absenden.php", {teilnahme: teilnahme, token: window.location.search.substr(7),grund:grund.value});
+            fetch(`./absenden.php?teilnahme=${teilnahme}&token=${window.location.search.substr(7)}&grund=${grund.value}`)
+                .then(response => {
+                    console.log(response);
+                    if(response.status === 200){
+                        alert("Glückwunsch, Sie haben sich erfolgreich an diesem Event abgemeldet!");
+                    }
+                });
 
         }
 
