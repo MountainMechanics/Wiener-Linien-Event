@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vjeko Mistrafovic
- * Date: 19.03.2019
- * Time: 14:56
- */
+
 require 'vendor/autoload.php';
 require 'Token.php';
+require '../DB/UserDatabase.php';
+
 
 $config = new \Doctrine\DBAL\Configuration();
-require "../DB/UserDatabase.php";
 
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
@@ -25,7 +21,19 @@ if(isset($_GET['token'])){
 
     $id = $queryBuilder->execute()->fetchAll();
 
+    $queryBuilder3 = $conn->createQueryBuilder();
+    $queryBuilder3
+        ->select('*')
+        ->from('Participants')
+        ->where('token = ?')
+        ->setParameter(0,$token);
 
+    $werte2 = $queryBuilder3->execute();
+
+    while ($row = $werte2->fetch()){
+        $name = $row['last_name'];
+
+    }
 
     $queryBuilder2 = $conn->createQueryBuilder();
     $queryBuilder2
@@ -46,21 +54,26 @@ if(isset($_GET['token'])){
         $time_begin = $row['time_begin'];
         $time_end = $row['time_end'];
         $strasse = $row['strasse'];
+        $desc = $row['description'];
+        $plz = $row['plz'];
+        $ort = $row['ort'];
         $GLOBALS['agenda'] = $row['agenda'];
+
     }
 
     $view = new \TYPO3Fluid\Fluid\View\TemplateView();
     $view->assignMultiple([
         'title' => $title,
-        'opening_text' => $opening_text,
+        'openingtext' => $opening_text,
         'second_text' => $second_text,
         'date_begin' => $date_begin,
         'time_begin' => $time_begin,
         'time_end' => $time_end,
-        'plz' => '1140',
-        'ort' => 'Wien',
         'strasse' => $strasse,
-        'name' => 'Bauer',
+        'name' => $name,
+        'desc' => $desc,
+        'plz' => $plz,
+        'ort' => $ort,
         'ICS' => createICS($queryBuilder2),
         'agenda' => createAgenda($queryBuilder2)
     ]);
@@ -69,9 +82,8 @@ if(isset($_GET['token'])){
     $output = $view->render();
     echo $output;
 }else{
-    echo "Upps. Da ist wohl etwas schiefgelaufen!";
+    echo "Der Token konnte nicht uebergeben werden";
 }
-
 
 function createICS($queryBuilder)
 {
@@ -120,6 +132,7 @@ function createAgenda($queryBuilder)
 
     return $agenda_filename . '.pdf';
 }
+
 
 
 
