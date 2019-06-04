@@ -12,7 +12,6 @@ class DBConnector{
             ->from('events_');
 
         $GLOBALS['event_id'] = $queryBuilder->execute()->fetch();
-        var_dump($GLOBALS['event_id']['MAX(pk_id)']);
         $GLOBALS['event_id']['MAX(pk_id)'] = (int)($GLOBALS['event_id']['MAX(pk_id)'])+1;
 
 

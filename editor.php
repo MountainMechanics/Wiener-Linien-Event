@@ -200,12 +200,12 @@ require 'src/Mail.php';
 require 'DB/UserDatabase.php';
 require 'src/Token.php';
 require 'src/DBConnector.php';
+require 'src/XLSXReader.php';
 
-//require 'src/Database.php';
 $config = new \Doctrine\DBAL\Configuration();
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
-if(isset($_POST['eventTitel'])){
+if(isset($_POST['eventTitel']) && isset($_FILES['event-users']) && isset($_FILES['event-agenda']) && isset($_FILES['event-picture'])){
 
     DBConnector::createEvent($conn);
     $recipients = XLSXReader::readXlsxFile($_FILES['event-users']['tmp_name']);

@@ -1,4 +1,5 @@
 <?php
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -6,7 +7,6 @@ use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
 require 'vendor/autoload.php';
-require 'XLSXReader.php';
 require 'smtpServerCredentials.php';
 
 class Mail{
@@ -15,7 +15,7 @@ class Mail{
         foreach ($recipients as $recipient){
             $mail = new PHPMailer();
 
-            // To load the French version
+            // To load the German version
             $mail->setLanguage('de', 'vendor\phpmailer\phpmailer\language');
 
             try {
@@ -31,15 +31,10 @@ class Mail{
 
                 //Recipients
                 $mail->setFrom($smtpServerCredentials['senderAccount'], $smtpServerCredentials['senderName']);
-               // $mail->addAddress('a.gruebling@gmail.com', 'Joe User');     // Add a recipient     // Name is optional
+
                 $mail->addAddress($recipient['D']);
                 $mail->addReplyTo($smtpServerCredentials['senderAccount'], 'Information');
-                //$mail->addCC('cc@example.com');
-                //$mail->addBCC('bcc@example.com');
 
-                // Attachments
-                //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                 // Content
                 $heading = $_POST['eventTitel'];
                 $subheading = $_POST['eventUTitel'];
@@ -65,7 +60,6 @@ class Mail{
                 $mail->CharSet = 'UTF-8';
                 $mail->addEmbeddedImage($tempImagePath, "picture");
                 $token = $recipient['token'];
-                //$mail->addAttachment($_FILES['event-picture']['tmp_name']);
                 $mail->Subject = 'Eventeinladung';
                 $mail->Body    = <<<END
 <html>
