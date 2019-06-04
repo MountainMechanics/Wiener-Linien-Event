@@ -99,23 +99,35 @@ form > *{
 /*
     Faking a bootstrap-like dateTimePicker because bootstrap doesnt have one
 */
-.dateTime{
+.dateTime, .pickDate{
     border: #a8a8a8 1px solid !important;
     border-radius: 1px;
+    margin-bottom: 10px;
 }
 
 .dateTime:focus{
     border-color: lightskyblue;
 }
 
-.dateTimeWrapper{
-    background-color: lightgrey;
-}
-
 .custom-file-label::after{
     display: none;
 }
 
+.dateTime, .pickDate, .geoloc, #eventTitel{
+    opacity: 1 !important;
+}
+
+.dateTime{
+    width: 40%;
+}
+
+.pickDate{
+    width: 85%;
+}
+
+.geoloc{
+    width: 90%;
+}
 /*Andi ---------------------------------*/
 
 .live-view h5 {

@@ -34,34 +34,18 @@ $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
         ->setParameter(":pw", hash('sha256', $pw))
         ->setParameter(":user", $username);
 
-    //echo $queryBuilder;
-    //
-$statement = $queryBuilder->execute()->fetchAll();
-    //$user = $statement->fetchAll();
 
-    //print_r($user);
+$statement = $queryBuilder->execute()->fetchAll();
+
 
 if (($userData = $queryBuilder->execute()->fetchAll())!=null){
     //echo "Success";
     $_SESSION["login"] = "true";
     $_SESSION["username"] = $username;
     $_SESSION["userID"] = $userData[0]["pk_id"];
-    //var_dump($userData[0]);
-
-    //echo "Session variables are set.";
-    //echo $_SESSION["login"];
     header("Location: home.php");
-    //include 'home.php';
 }else {
 
-   // include 'index.php';
     header("Location: index.php?invalid=true");
     $_SESSION["login"] = "false";
 }
-
-
-
-
-
-//echo 'Username: '.$username.'<br>';
-//echo 'Password: '.$pw.'<br>';

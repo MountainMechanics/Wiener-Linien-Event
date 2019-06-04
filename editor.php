@@ -17,7 +17,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/formStyles.css">
-    <!--  <script src="js/form-validation.js"></script>-->
+    <script src="js/form-validation.js"></script>
     <script src="js/auto-preview.js"></script>
     <!-- END: Bootstrap requires this -->
 
@@ -68,7 +68,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
                 <!-- Event title -->
                 <div class="e-spacing" >
                     <label for="eventTitel">Event-Titel</label><br>
-                    <input type="text" id="eventTitel" placeholder="Geben Sie Ihrem Event einen Namen" name="eventTitel" required>
+                    <input class="custom-file-input" type="text" id="eventTitel" placeholder="Geben Sie Ihrem Event einen Namen" name="eventTitel" required>
                     <div class="invalid-feedback">
                         Ein Event braucht einen Namen
                     </div>
@@ -84,19 +84,34 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
 
                 <div class="e-spacing col">
                     <label for="pickDate">Wählen Sie ein Datum aus</label><br>
-                    Datum: <span class="dateTimeWrapper"><input name="date" id="pickDate" type="date" class="dateTime" required></span>
-                    Beginn: <span class="dateTimeWrapper"><input name="time-begin" id="pickBeginTime" type="time" class="dateTime" required></span>
-                    Ende: <span class="dateTimeWrapper"><input name="time-end" id="pickEndTime" type="time" class="dateTime" required></span>
+                    Datum:<span class="dateTimeWrapper">
+                        <input name="date" id="pickDate" type="date" class="pickDate custom-file-input" required>
+                        <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div><br>
+                    </span>
+                    <label for="pickBeginTime">Beginn:</label><span class="dateTimeWrapper">
+                        <input name="time-begin" id="pickBeginTime" type="time" class="dateTime custom-file-input" required>
+                        <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div>
+                    </span>
+                    <label for="pickEndTime">Ende:</label><span class="dateTimeWrapper">
+                        <input name = "time-end" id = "pickEndTime" type="time" class="dateTime custom-file-input" required>
+                        <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div>
+                    </span>
                 </div>
-
 
                 <!-- Geolocation -->
                 <div class="col">
-                    <label>Adresse</label>
-                    <input id="strasse" name="straße" type="text" placeholder="Straße/Gasse">
-                    <input id="hNummer" name="hNummer" type="number" minlength="1" placeholder="Hausnummer">
-                    <input id="plz" name="plz" minlength="4" maxlength="4" size="4" type="number" placeholder="PLZ">
-                    <input id="ort" name="ort" type="text" placeholder="Ort">
+                    <label>Adresse</label><br>
+                    <input class="geoloc custom-file-input" id="strasse" name="straße" type="text" placeholder="Straße/Gasse" required>
+                    <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div><br><br>
+
+                    <input class="geoloc custom-file-input" id="hNummer" name="hNummer" type="number" minlength="1" placeholder="Hausnummer" required>
+                    <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div><br><br>
+
+                    <input class="geoloc custom-file-input" id="plz" name="plz" minlength="4" maxlength="4" size="4" type="number" placeholder="PLZ" required>
+                    <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div><br><br>
+
+                    <input class="geoloc custom-file-input" id="ort" name="ort" type="text" placeholder="Ort" required>
+                    <div class="invalid-feedback">Bitte f&uuml;llen Sie dieses Feld aus.</div>
                 </div>
 
                 <!-- Fileuploads START-->
@@ -184,7 +199,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"]=="true"){
         </section>
         <button class="btn btn-primary">Anmeldung & Details</button>
     </div>
-</div>
+    </div>
 </div>
 
 <!-- Bootstrap scripts -->

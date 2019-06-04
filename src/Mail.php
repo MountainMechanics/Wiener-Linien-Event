@@ -71,7 +71,7 @@ class Mail{
 <h3>$subheading</h3>
 <img src="cid:picture"/>
 <p>$desc</p>
-<a class="btn btn-primary" href="http://wiener.linien/loginConformation/loginConformation.php?token=$token">Anmeldung & Details</a>
+<a class="btn btn-primary" href="http://10.14.83.118/Wiener-Linien-Event/loginConformation/loginConformation.php?token=$token">Anmeldung & Details</a>
 </body>
 </html>
 END;
